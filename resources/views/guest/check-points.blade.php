@@ -16,6 +16,7 @@
                playsinline 
                preload="auto"
                class="w-full h-full object-cover scale-105 transition-transform duration-1000 ease-out brightness-[0.98] contrast-[1.04] saturate-[1.06]">
+            <source src="{{ asset('videos/TV PROMO - Tanpa Wording.mp4') }}" type="video/mp4">
             <source src="{{ asset('videos/Grand Senyum Hotel.mp4') }}" type="video/mp4">
             <source src="{{ asset('videos/compro.mp4') }}" type="video/mp4">
             <source src="{{ asset('videos/building.MP4') }}" type="video/mp4">
