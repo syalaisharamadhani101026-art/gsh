@@ -33,7 +33,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('admin.auth')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('dashboard');
         Route::post('/stay', [AdminController::class, 'storeStay'])->name('stay.store');
-        Route::post('/guest/{guest}/tier', [AdminController::class, 'upgradeTier'])->name('guest.tier');
+        Route::match(['post', 'patch'], '/guest/{guest}/tier', [AdminController::class, 'upgradeTier'])->name('guest.tier');
         Route::post('/redemption', [AdminController::class, 'storeRedemption'])->name('redemption.store');
         Route::post('/redemption/{redemption}/status', [AdminController::class, 'updateRedemptionStatus'])->name('redemption.status');
     });
