@@ -16,6 +16,8 @@
                playsinline 
                preload="auto"
                class="w-full h-full object-cover scale-105 transition-transform duration-1000 ease-out brightness-[0.98] contrast-[1.04] saturate-[1.06]">
+            <source src="{{ asset('videos/hotel-video.mp4') }}" type="video/mp4">
+            <source src="{{ asset('videos/WhatsApp Video 2026-11-03 at 09.14.51.mp4') }}" type="video/mp4">
             <source src="{{ asset('videos/TV PROMO - Tanpa Wording.mp4') }}" type="video/mp4">
             <source src="{{ asset('videos/Grand Senyum Hotel.mp4') }}" type="video/mp4">
             <source src="{{ asset('videos/compro.mp4') }}" type="video/mp4">
@@ -194,12 +196,8 @@
 
                 <!-- Quick CTA Links -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
-                    <a href="{{ route('guest.mobile') }}" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#d6ac57] via-[#f5d78e] to-[#b38a36] text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
-                        <i data-lucide="smartphone" class="w-4 h-4"></i>
-                        <span>Open Mobile App</span>
-                    </a>
-                    <a href="#cek-poin" class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
-                        <i data-lucide="search" class="w-4 h-4 text-[#d6ac57]"></i>
+                    <a href="#cek-poin" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#d6ac57] via-[#f5d78e] to-[#b38a36] text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
+                        <i data-lucide="search" class="w-4 h-4 text-slate-950"></i>
                         <span>Check Member Points</span>
                     </a>
                 </div>

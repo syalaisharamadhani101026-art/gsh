@@ -13,12 +13,10 @@ Route::get('/', function () {
 // Portal Tamu / Cek Poin (tanpa login - khusus pelanggan)
 Route::get('/cek-poin', [GuestPortalController::class, 'index'])->name('guest.points');
 
-// Web Customer Berbasis Mobile (Dedicated Mobile App Experience)
-Route::get('/mobile', [GuestPortalController::class, 'mobileIndex'])->name('guest.mobile');
-Route::get('/m', fn() => redirect()->route('guest.mobile'));
-
-// Halaman Preview Rekaman Layar Mobile Web
-Route::get('/rekaman-layar', [GuestPortalController::class, 'screenRecording'])->name('guest.recording');
+// Redirect legacy mobile URLs ke portal cek poin
+Route::get('/mobile', fn() => redirect()->route('guest.points'));
+Route::get('/m', fn() => redirect()->route('guest.points'));
+Route::get('/rekaman-layar', fn() => redirect()->route('guest.points'));
 
 // Penukaran Hadiah / Redeem Point oleh Tamu
 Route::post('/redeem', [GuestPortalController::class, 'redeem'])->name('guest.redeem');
