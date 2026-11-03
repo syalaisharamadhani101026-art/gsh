@@ -580,7 +580,7 @@
                 </div>
                 <h3 class="font-serif font-black text-xl text-stone-900">Bespoke Hospitality</h3>
                 <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
-                    Prime location on Jalan Pangeran Diponegoro No.27, near Tugu Monument and Malioboro. Enjoy bespoke comfort with complimentary Tugu station pick-up, early check-in, and late check-out.
+                    Prime location on <a href="{{ config('hotel.maps_url', 'https://www.google.com/maps/search/?api=1&query=Grand+Senyum+Hotel+Yogyakarta') }}" target="_blank" rel="noopener noreferrer" class="text-[#8A6319] hover:underline font-semibold inline-flex items-center gap-1">Jalan Pangeran Diponegoro No.27 <i data-lucide="external-link" class="w-3 h-3 inline"></i></a>, near Tugu Monument and Malioboro. Enjoy bespoke comfort with complimentary Tugu station pick-up, early check-in, and late check-out.
                 </p>
             </div>
 

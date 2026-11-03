@@ -75,10 +75,10 @@
     <div class="bg-[#1C1408] text-[#EBD195] text-[11px] sm:text-xs py-2 px-4 border-b border-[#3D2C12] tracking-wider z-50">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5">
             <div class="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-1">
-                <span class="inline-flex items-center space-x-1.5 text-stone-300">
-                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#D4AF37]"></i>
-                    <span>Jl. Pangeran Diponegoro No.27, Gowongan, Jetis, Kota Yogyakarta (55232)</span>
-                </span>
+                <a href="{{ config('hotel.maps_url', 'https://www.google.com/maps/search/?api=1&query=Grand+Senyum+Hotel+Yogyakarta') }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 text-stone-300 hover:text-white transition group" title="Buka Lokasi Grand Senyum Hotel di Google Maps">
+                    <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#D4AF37] group-hover:scale-110 transition-transform"></i>
+                    <span class="hover:underline">Jl. Pangeran Diponegoro No.27, Gowongan, Jetis, Kota Yogyakarta (55232)</span>
+                </a>
                 <span class="hidden md:inline text-stone-600">|</span>
                 <a href="tel:0274566306" class="inline-flex items-center space-x-1 text-stone-300 hover:text-white transition">
                     <i data-lucide="phone" class="w-3.5 h-3.5 text-[#D4AF37]"></i>
@@ -228,7 +228,9 @@
                     <div class="space-y-2.5 text-xs text-stone-300">
                         <p class="flex items-start space-x-2">
                             <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5"></i>
-                            <span>Jalan Pangeran Diponegoro No.27, Gowongan, Kecamatan Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta ( 55232 )</span>
+                            <a href="{{ config('hotel.maps_url', 'https://www.google.com/maps/search/?api=1&query=Grand+Senyum+Hotel+Yogyakarta') }}" target="_blank" rel="noopener noreferrer" class="hover:text-[#D4AF37] transition hover:underline" title="Buka Lokasi di Google Maps">
+                                Jalan Pangeran Diponegoro No.27, Gowongan, Kecamatan Jetis, Kota Yogyakarta, Daerah Istimewa Yogyakarta ( 55232 )
+                            </a>
                         </p>
                         <p class="flex items-center space-x-2">
                             <i data-lucide="phone" class="w-4 h-4 text-[#D4AF37] shrink-0"></i>
