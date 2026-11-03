@@ -8,14 +8,14 @@
 <!-- ======================================================== -->
 <div id="drone-intro-overlay" class="fixed inset-0 z-[100] bg-black hidden flex-col justify-between overflow-hidden transition-opacity duration-700">
     <!-- Video Player Background -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden">
+    <div class="absolute inset-0 w-full h-full overflow-hidden flex items-center justify-center bg-black">
         <video id="drone-video-player" 
                autoplay 
                muted 
                loop 
                playsinline 
                preload="auto"
-               class="w-full h-full object-cover scale-105 transition-transform duration-1000 ease-out brightness-[0.98] contrast-[1.04] saturate-[1.06]">
+               class="w-full h-full object-contain transition-all duration-700 ease-out brightness-[0.98] contrast-[1.04] saturate-[1.06]">
             <source src="{{ asset('videos/hotel-video.mp4') }}?v={{ time() }}" type="video/mp4">
             <source src="{{ asset('videos/WhatsApp Video 2026-11-03 at 09.14.51.mp4') }}?v={{ time() }}" type="video/mp4">
         </video>
@@ -60,7 +60,16 @@
             </div>
         </div>
 
-        <div class="flex items-center space-x-3">
+        <div class="flex items-center space-x-2.5">
+            <!-- Video Scale Mode Toggle (Fit Utuh vs Fill Penuh) -->
+            <button type="button" 
+                    id="fit-toggle-btn" 
+                    onclick="toggleDroneFit()" 
+                    class="p-2.5 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 text-white transition-all backdrop-blur-md shadow-lg"
+                    title="Toggle Ukuran Video (Layar Utuh / Penuh)">
+                <i data-lucide="maximize-2" id="fit-icon" class="w-4 h-4 text-[#d6ac57]"></i>
+            </button>
+
             <!-- Audio Toggle (Mute / Unmute) -->
             <button type="button" 
                     id="audio-toggle-btn" 
@@ -1758,6 +1767,29 @@
         btn.innerHTML = player.muted 
             ? '<i data-lucide="volume-x" class="w-4 h-4 text-amber-400"></i>' 
             : '<i data-lucide="volume-2" class="w-4 h-4 text-amber-400"></i>';
+
+        if (window.lucide) {
+            lucide.createIcons();
+        }
+    }
+
+    function toggleDroneFit() {
+        const player = document.getElementById('drone-video-player');
+        const btn = document.getElementById('fit-toggle-btn');
+        if (!player || !btn) return;
+
+        const isContain = player.classList.contains('object-contain');
+        if (isContain) {
+            player.classList.remove('object-contain');
+            player.classList.add('object-cover');
+            btn.innerHTML = '<i data-lucide="minimize-2" class="w-4 h-4 text-[#d6ac57]"></i>';
+            btn.title = "Kembalikan ke Layar Utuh (Fit)";
+        } else {
+            player.classList.remove('object-cover');
+            player.classList.add('object-contain');
+            btn.innerHTML = '<i data-lucide="maximize-2" class="w-4 h-4 text-[#d6ac57]"></i>';
+            btn.title = "Penuhi Layar (Fill)";
+        }
 
         if (window.lucide) {
             lucide.createIcons();
