@@ -16,8 +16,9 @@
                playsinline 
                preload="auto"
                class="w-full h-full object-contain transition-all duration-700 ease-out brightness-[0.98] contrast-[1.04] saturate-[1.06]">
-            <source src="{{ asset('videos/hotel-video.mp4') }}?v={{ time() }}" type="video/mp4">
-            <source src="{{ asset('videos/WhatsApp Video 2026-11-03 at 09.14.51.mp4') }}?v={{ time() }}" type="video/mp4">
+            <source src="{{ asset('videos/WhatsApp%20Video%202026-11-03%20at%2009.14.51.mp4') }}" type="video/mp4">
+            <source src="{{ asset('videos/hotel-video.mp4') }}" type="video/mp4">
+            <source src="{{ asset('videos/WhatsApp Video 2026-11-03 at 09.14.51.mp4') }}" type="video/mp4">
         </video>
 
         <!-- Balanced Cinematic Tone: Jernih, Elegan, Tidak Gelap & Tidak Terlalu Terang -->
