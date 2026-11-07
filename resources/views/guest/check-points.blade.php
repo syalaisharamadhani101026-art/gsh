@@ -88,9 +88,9 @@
         <!-- Badge Atas Mewah -->
         <div class="inline-flex items-center space-x-3 px-6 py-2.5 rounded-full text-xs font-sans font-medium tracking-[0.22em] uppercase bg-black/55 text-[#f5d78e] border border-[#d6ac57]/50 backdrop-blur-md shadow-2xl">
             <i data-lucide="crown" class="w-3.5 h-3.5 text-[#d6ac57]"></i>
-            <span>Grand Senyum Hotel Yogyakarta</span>
+            <span>{{ __('Grand Senyum Hotel Yogyakarta') }}</span>
             <span class="w-1.5 h-1.5 rounded-full bg-[#d6ac57]"></span>
-            <span class="text-white/90">VIP Member Club</span>
+            <span class="text-white/90">{{ __('VIP Member Club') }}</span>
         </div>
 
         <!-- Judul Utama (Dua Baris Presisi: SENYUM STAY di Atas, PRIORITY Turun di Bawahnya) -->
@@ -115,7 +115,7 @@
             </div>
 
             <p class="text-sm sm:text-base text-stone-100 max-w-2xl mx-auto font-sans font-normal tracking-[0.06em] leading-relaxed drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
-                An extraordinary stay experience blending exclusive comfort, point accumulation from room reservations & banquet revenue, and prestigious VIP rewards.
+                {{ __('An extraordinary stay experience blending exclusive comfort, point accumulation from room reservations & banquet revenue, and prestigious VIP rewards.') }}
             </p>
         </div>
 
@@ -124,7 +124,7 @@
             <button type="button" 
                     onclick="closeDroneIntro()" 
                     class="group w-full sm:w-auto px-10 py-4 rounded-full bg-gradient-to-r from-[#d6ac57] via-[#f5d78e] to-[#b38a36] hover:brightness-110 text-slate-950 font-sans font-semibold text-xs sm:text-sm tracking-[0.18em] uppercase shadow-[0_0_40px_rgba(214,172,87,0.6)] hover:shadow-[0_0_55px_rgba(214,172,87,0.85)] hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center space-x-3">
-                <span>Enter Member Portal Priority</span>
+                <span>{{ __('Enter Member Portal Priority') }}</span>
                 <i data-lucide="arrow-right" class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"></i>
             </button>
         </div>
@@ -133,15 +133,15 @@
         <div class="flex flex-wrap items-center justify-center gap-2.5 pt-2 text-[11px] sm:text-xs text-white/90 font-sans font-medium tracking-wider">
             <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/45 border border-white/20 backdrop-blur-md shadow-sm">
                 <i data-lucide="award" class="w-3.5 h-3.5 text-[#d6ac57]"></i>
-                <span>Tiers: Silver &bull; Gold &bull; Platinum</span>
+                <span>{{ __('Tiers: Silver • Gold • Platinum') }}</span>
             </span>
             <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/45 border border-white/20 backdrop-blur-md shadow-sm">
                 <i data-lucide="gift" class="w-3.5 h-3.5 text-[#d6ac57]"></i>
-                <span>Exclusive Rewards & E-Vouchers</span>
+                <span>{{ __('Exclusive Rewards & E-Vouchers') }}</span>
             </span>
             <span class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full bg-black/45 border border-white/20 backdrop-blur-md shadow-sm">
                 <i data-lucide="train" class="w-3.5 h-3.5 text-[#d6ac57]"></i>
-                <span>Complimentary Tugu Station Pick-up</span>
+                <span>{{ __('Complimentary Tugu Station Pick-up') }}</span>
             </span>
         </div>
     </div>
@@ -179,31 +179,41 @@
                 <div class="inline-flex flex-wrap items-center justify-center lg:justify-start gap-2">
                     <span class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/15 text-[#EBD195] border border-amber-500/30 backdrop-blur-md">
                         <i data-lucide="crown" class="w-3.5 h-3.5 text-[#D4AF37]"></i>
-                        <span>Bespoke Loyalty Privilege</span>
+                        <span>{{ __('Bespoke Loyalty Privilege') }}</span>
                     </span>
                     <button type="button" 
                             onclick="openDroneIntro(true)" 
                             class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/10 hover:bg-white/20 text-white border border-white/20 transition backdrop-blur-md">
                         <i data-lucide="play" class="w-3 h-3 text-[#d6ac57] fill-[#d6ac57]"></i>
-                        <span>Play Hotel Video</span>
+                        <span>{{ __('Play Hotel Video') }}</span>
                     </button>
                 </div>
 
                 <div class="space-y-4">
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-sans font-light tracking-[0.12em] sm:tracking-[0.16em] uppercase leading-snug text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
-                        A World of Bespoke <br class="hidden sm:inline">
-                        <span class="gold-shimmer font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">Privileges & Recognition</span>
-                    </h1>
-                    <p class="text-sm sm:text-base text-stone-100 max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans font-normal tracking-[0.05em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
-                        Welcome to <span class="text-white font-medium">Senyum Stay Priority</span>, the prestigious loyalty program by Grand Senyum Hotel Yogyakarta. Earn genuine rewards from every room stay and banquet event revenue, while enjoying bespoke VIP privileges crafted for your highest comfort.
-                    </p>
+                    @if(app()->getLocale() === 'id')
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-sans font-light tracking-[0.12em] sm:tracking-[0.16em] uppercase leading-snug text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+                            Dunia Hak Istimewa <br class="hidden sm:inline">
+                            <span class="gold-shimmer font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">& Pengakuan Eksklusif</span>
+                        </h1>
+                        <p class="text-sm sm:text-base text-stone-100 max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans font-normal tracking-[0.05em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                            Selamat datang di <span class="text-white font-medium">Senyum Stay Priority</span>, program loyalitas bergengsi dari Grand Senyum Hotel Yogyakarta. Dapatkan reward nyata dari setiap reservasi kamar dan transaksi acara banquet, serta nikmati berbagai hak istimewa VIP eksklusif untuk kenyamanan Anda.
+                        </p>
+                    @else
+                        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-sans font-light tracking-[0.12em] sm:tracking-[0.16em] uppercase leading-snug text-white drop-shadow-[0_4px_20px_rgba(0,0,0,0.95)]">
+                            A World of Bespoke <br class="hidden sm:inline">
+                            <span class="gold-shimmer font-normal drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">Privileges & Recognition</span>
+                        </h1>
+                        <p class="text-sm sm:text-base text-stone-100 max-w-xl mx-auto lg:mx-0 leading-relaxed font-sans font-normal tracking-[0.05em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">
+                            Welcome to <span class="text-white font-medium">Senyum Stay Priority</span>, the prestigious loyalty program by Grand Senyum Hotel Yogyakarta. Earn genuine rewards from every room stay and banquet event revenue, while enjoying bespoke VIP privileges crafted for your highest comfort.
+                        </p>
+                    @endif
                 </div>
 
                 <!-- Quick CTA Links -->
                 <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
                     <a href="#cek-poin" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#d6ac57] via-[#f5d78e] to-[#b38a36] text-slate-950 font-bold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition-all duration-200 flex items-center space-x-2">
                         <i data-lucide="search" class="w-4 h-4 text-slate-950"></i>
-                        <span>Check Member Points</span>
+                        <span>{{ __('Check Points') }}</span>
                     </a>
                 </div>
 
@@ -212,15 +222,15 @@
                     <div class="grid grid-cols-3 gap-2 sm:gap-4 text-center lg:text-left divide-x divide-white/15">
                         <div class="px-1 sm:px-2">
                             <span class="font-serif font-black text-lg sm:text-2xl text-[#F5D78E] block tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">Silver &bull; Gold</span>
-                            <span class="text-[11px] sm:text-xs text-amber-100/90 font-medium tracking-wide block mt-1 drop-shadow">Up to Platinum Tier</span>
+                            <span class="text-[11px] sm:text-xs text-amber-100/90 font-medium tracking-wide block mt-1 drop-shadow">{{ app()->getLocale() === 'id' ? 'Hingga Tingkat Platinum' : 'Up to Platinum Tier' }}</span>
                         </div>
                         <div class="px-1 sm:px-2">
-                            <span class="font-serif font-black text-lg sm:text-2xl text-[#F5D78E] block tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">+10 Points</span>
-                            <span class="text-[11px] sm:text-xs text-amber-100/90 font-medium tracking-wide block mt-1 drop-shadow">Per IDR 1M Banquet Revenue</span>
+                            <span class="font-serif font-black text-lg sm:text-2xl text-[#F5D78E] block tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">{{ app()->getLocale() === 'id' ? '+10 Poin' : '+10 Points' }}</span>
+                            <span class="text-[11px] sm:text-xs text-amber-100/90 font-medium tracking-wide block mt-1 drop-shadow">{{ app()->getLocale() === 'id' ? 'Per Rp 1 Juta Revenue Acara' : 'Per IDR 1M Banquet Revenue' }}</span>
                         </div>
                         <div class="px-1 sm:px-2">
-                            <span class="font-serif font-black text-lg sm:text-2xl text-[#F5D78E] block tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">10 &ndash; 30 Pts</span>
-                            <span class="text-[11px] sm:text-xs text-amber-100/90 font-medium tracking-wide block mt-1 drop-shadow">Per Room Night Stay</span>
+                            <span class="font-serif font-black text-lg sm:text-2xl text-[#F5D78E] block tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.9)]">{{ app()->getLocale() === 'id' ? '10 – 30 Poin' : '10 – 30 Pts' }}</span>
+                            <span class="text-[11px] sm:text-xs text-amber-100/90 font-medium tracking-wide block mt-1 drop-shadow">{{ app()->getLocale() === 'id' ? 'Per Malam Menginap Kamar' : 'Per Room Night Stay' }}</span>
                         </div>
                     </div>
                 </div>
@@ -235,52 +245,52 @@
                                 <i data-lucide="shield-check" class="w-5 h-5"></i>
                             </div>
                             <div>
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] block font-serif">Registered Member Access</span>
-                                <h3 class="font-serif font-black text-lg text-stone-900">Check Your Points & Privileges</h3>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] block font-serif">{{ __('Registered Member Access') }}</span>
+                                <h3 class="font-serif font-black text-lg text-stone-900">{{ __('Check Your Points & Privileges') }}</h3>
                             </div>
                         </div>
 
                         <form action="{{ route('guest.points') }}#member-hub" method="GET" class="space-y-3.5" id="heroSearchForm" onsubmit="return validateHeroSearchForm()">
                             <div>
                                 <label for="name" class="block text-xs font-bold uppercase tracking-wider text-stone-800 mb-1">
-                                    <i data-lucide="user" class="w-3.5 h-3.5 inline mr-1 text-[#8A6319]"></i> Guest Full Name
+                                    <i data-lucide="user" class="w-3.5 h-3.5 inline mr-1 text-[#8A6319]"></i> {{ __('Guest Full Name') }}
                                 </label>
                                 <input type="text" 
                                        id="name" 
                                        name="name" 
                                        value="{{ old('name', $searchName) }}" 
-                                       placeholder="Enter guest full name" 
+                                       placeholder="{{ __('Enter guest full name') }}" 
                                        class="w-full px-4 py-3 rounded-xl bg-[#FAF6EE] border border-[#D8C9AF] focus:bg-white focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none text-stone-900 text-sm transition font-medium">
                             </div>
 
                             <div>
                                 <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-stone-800 mb-1">
-                                    <i data-lucide="phone" class="w-3.5 h-3.5 inline mr-1 text-[#8A6319]"></i> Mobile Phone Number
+                                    <i data-lucide="phone" class="w-3.5 h-3.5 inline mr-1 text-[#8A6319]"></i> {{ __('Mobile Phone Number') }}
                                 </label>
                                 <input type="tel" 
                                        id="phone" 
                                        name="phone" 
                                        value="{{ old('phone', $searchPhone) }}" 
-                                       placeholder="e.g. 081234567890" 
+                                       placeholder="{{ __('e.g. 081234567890') }}" 
                                        class="w-full px-4 py-3 rounded-xl bg-[#FAF6EE] border border-[#D8C9AF] focus:bg-white focus:ring-2 focus:ring-[#C89B3C] focus:border-[#C89B3C] outline-none text-stone-900 text-sm transition font-medium">
                             </div>
 
                             <p id="hero-search-error-msg" class="hidden text-xs text-rose-600 font-semibold"></p>
 
                             <button type="submit" 
-                                    class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#DFB85B] to-[#B8860B] hover:from-[#B8860B] hover:to-[#D4AF37] text-stone-950 font-serif font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2">
+                                     class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#DFB85B] to-[#B8860B] hover:from-[#B8860B] hover:to-[#D4AF37] text-stone-950 font-serif font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2">
                                 <i data-lucide="search" class="w-4 h-4"></i>
-                                <span>Check Member Status & Points</span>
+                                <span>{{ __('Check Member Status & Points') }}</span>
                             </button>
                         </form>
 
                         @if($guest)
                             <div class="mt-3 p-3 rounded-xl bg-amber-50 border border-amber-200 text-xs flex items-center justify-between text-amber-900">
                                 <div class="truncate">
-                                    <span class="font-bold">Active Member:</span> {{ $guest->name }} ({{ $guest->tier }})
+                                    <span class="font-bold">{{ __('Active Member:') }}</span> {{ $guest->name }} ({{ $guest->tier }})
                                 </div>
                                 <a href="#member-hub" class="text-[11px] font-bold text-[#8A6319] hover:underline shrink-0 ml-2 flex items-center">
-                                    <span>View Details</span>
+                                    <span>{{ __('View Details') }}</span>
                                     <i data-lucide="arrow-down" class="w-3 h-3 ml-0.5"></i>
                                 </a>
                             </div>
@@ -289,8 +299,8 @@
 
                     @if($searched && $notFound)
                         <div class="mt-4 p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-800 space-y-1">
-                            <p class="font-bold flex items-center"><i data-lucide="alert-circle" class="w-4 h-4 mr-1 text-rose-600"></i> Guest Not Found</p>
-                            <p>Name "{{ $searchName }}" or phone number "{{ $searchPhone }}" is not registered in our system. Please contact the Front Desk for new membership registration.</p>
+                            <p class="font-bold flex items-center"><i data-lucide="alert-circle" class="w-4 h-4 mr-1 text-rose-600"></i> {{ __('Guest Not Found') }}</p>
+                            <p>{{ __('Name') }} "{{ $searchName }}" {{ __('or phone number') }} "{{ $searchPhone }}" {{ __('is not registered in our system. Please contact the Front Desk for new membership registration.') }}</p>
                         </div>
                     @endif
                 </div>
@@ -315,12 +325,12 @@
                     <i data-lucide="user-check" class="w-6 h-6"></i>
                 </div>
                 <div>
-                    <span class="text-xs uppercase font-bold text-[#8A6319] tracking-wider font-serif">Welcome Back</span>
+                    <span class="text-xs uppercase font-bold text-[#8A6319] tracking-wider font-serif">{{ __('Welcome Back') }}</span>
                     <h2 class="text-2xl sm:text-3xl font-serif font-black text-stone-900">
                         {{ $guest->name }}
                     </h2>
                     <p class="text-xs text-stone-600 mt-0.5">
-                        Member No: <span class="font-mono font-bold text-[#8A6319]">{{ $guest->member_number }}</span> &bull; Status: <span class="font-bold text-stone-900">{{ $guest->tier }} Member</span>
+                        {{ __('Member No:') }} <span class="font-mono font-bold text-[#8A6319]">{{ $guest->member_number }}</span> &bull; {{ __('Status:') }} <span class="font-bold text-stone-900">{{ $guest->tier }} {{ __('Member') }}</span>
                     </p>
                 </div>
             </div>
@@ -328,11 +338,11 @@
             <div class="flex items-center space-x-3">
                 <a href="#cek-poin" class="px-4 py-2.5 rounded-xl bg-[#FAF6EE] hover:bg-[#F5ECD8] border border-[#D8C9AF] text-stone-700 text-xs font-bold transition flex items-center space-x-1.5">
                     <i data-lucide="search" class="w-3.5 h-3.5 text-[#8A6319]"></i>
-                    <span>Search Other Guest</span>
+                    <span>{{ __('Search Other Guest') }}</span>
                 </a>
-                <a href="#katalog" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 text-xs font-serif font-bold uppercase tracking-wider shadow-sm hover:brightness-105 transition flex items-center space-x-1.5">
+                <a href="{{ route('guest.catalog', ['lang' => app()->getLocale()]) }}" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 text-xs font-serif font-bold uppercase tracking-wider shadow-sm hover:brightness-105 transition flex items-center space-x-1.5">
                     <i data-lucide="gift" class="w-4 h-4"></i>
-                    <span>Redeem Points ({{ number_format($guest->points) }} Pts)</span>
+                    <span>{{ __('Redeem Points') }} ({{ number_format($guest->points) }} {{ app()->getLocale() === 'id' ? 'Poin' : 'Pts' }})</span>
                 </a>
             </div>
         </div>
@@ -377,7 +387,7 @@
                     <!-- Top Right: Points Balance Pill Badge -->
                     <div class="absolute right-[4%] top-[5.5%] z-10">
                         <span class="px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold uppercase tracking-wider bg-black/60 backdrop-blur-md text-[#d6ac57] border border-[#d6ac57]/40 shadow-lg">
-                            {{ number_format($guest->points, 0, ',', '.') }} PTS
+                            {{ number_format($guest->points, 0, ',', '.') }} {{ app()->getLocale() === 'id' ? 'POIN' : 'PTS' }}
                         </span>
                     </div>
 
@@ -390,7 +400,7 @@
                             {{ $guest->member_number }}
                         </div>
                         <div class="text-[8px] sm:text-[10px] md:text-[8.5px] lg:text-[10px] font-sans font-light tracking-[0.06em] {{ $valColor }} mt-2 sm:mt-2.5 leading-tight">
-                            VALID THRU 11/27
+                            {{ app()->getLocale() === 'id' ? 'BERLAKU S/D' : 'VALID THRU' }} 11/27
                         </div>
                     </div>
                 </div>
@@ -398,21 +408,21 @@
                 <!-- Point Accumulation & Tier Cap Progress -->
                 <div class="p-5 rounded-2xl bg-[#FAF6EE] border border-[#D8C9AF] text-xs space-y-3">
                     <div class="flex justify-between font-bold text-stone-900">
-                        <span>Accumulated Point Balance:</span>
+                        <span>{{ __('Accumulated Point Balance:') }}</span>
                         <span class="text-[#8A6319]">
-                            {{ number_format($guest->points) }} / {{ number_format($guest->max_points) }} Points
+                            {{ number_format($guest->points) }} / {{ number_format($guest->max_points) }} {{ app()->getLocale() === 'id' ? 'Poin' : 'Points' }}
                         </span>
                     </div>
                     <div class="w-full bg-[#E8DCC8] rounded-full h-3 p-0.5 overflow-hidden">
                         <div class="h-full rounded-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] transition-all duration-500" style="width: {{ $guest->points_percentage }}%"></div>
                     </div>
                     <p class="text-stone-700 text-xs">
-                        Tier range for <strong>{{ $guest->tier }}</strong>: <strong>{{ $guest->tier_config['range_label'] }}</strong> (Maximum cap {{ number_format($guest->max_points) }} points).
+                        {{ __('Tier range for') }} <strong>{{ $guest->tier }}</strong>: <strong>{{ app()->getLocale() === 'id' ? '( 0 – ' . number_format($guest->max_points, 0, ',', '.') . ' Poin )' : $guest->tier_config['range_label'] }}</strong> ({{ __('Maximum cap') }} {{ number_format($guest->max_points, 0, ',', '.') }} {{ app()->getLocale() === 'id' ? 'poin' : 'points' }}).
                     </p>
                     @if($guest->points >= $guest->max_points)
                         <div class="p-2.5 rounded-xl bg-amber-100 border border-amber-300 text-amber-950 font-semibold text-[11px] flex items-center space-x-2">
                             <i data-lucide="alert-circle" class="w-4 h-4 text-amber-700 shrink-0"></i>
-                            <span>Maximum tier limit reached! Points will not increase further until upgraded to the next tier.</span>
+                            <span>{{ __('Maximum tier limit reached! Points will not increase further until upgraded to the next tier.') }}</span>
                         </div>
                     @endif
                 </div>
@@ -423,11 +433,11 @@
                 <div class="p-6 rounded-3xl bg-gradient-to-br from-[#FAF3E3] via-[#FFFDF9] to-[#F5EAD4] border border-[#DEC8A4] shadow-sm">
                     <div class="flex items-center justify-between pb-3 border-b border-[#DEC8A4]">
                         <div>
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] font-serif block">Your Active Privileges</span>
-                            <h3 class="font-serif font-black text-xl text-stone-900">Tier {{ $guest->tier }} Benefits</h3>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] font-serif block">{{ __('Your Active Privileges') }}</span>
+                            <h3 class="font-serif font-black text-xl text-stone-900">{{ __('Tier') }} {{ $guest->tier }} {{ __('Benefits') }}</h3>
                         </div>
                         <span class="px-3 py-1 rounded-full text-xs font-bold bg-[#FAF6EE] text-[#7A5210] border border-[#DEC8A4]">
-                            {{ count($guest->benefits) }} Active Privileges
+                            {{ count($guest->benefits) }} {{ __('Active Privileges') }}
                         </span>
                     </div>
 
@@ -435,7 +445,7 @@
                         @foreach($guest->benefits as $benefit)
                             <div class="flex items-start space-x-2.5 p-2.5 rounded-xl bg-[#FFFDF9] border border-[#E8DFC8] text-xs font-medium text-stone-800">
                                 <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                <span>{{ $benefit }}</span>
+                                <span>{{ __($benefit) }}</span>
                             </div>
                         @endforeach
                     </div>
@@ -446,11 +456,11 @@
                     <div class="p-6 rounded-3xl bg-[#FAF6EE] border border-[#D8C9AF]">
                         <div class="flex items-center justify-between mb-3 pb-2 border-b border-[#E8DFC8]">
                             <div>
-                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] font-serif block">E-Voucher Wallet</span>
-                                <h4 class="font-serif font-bold text-stone-900 text-base">Your Reward Vouchers</h4>
+                                <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] font-serif block">{{ __('E-Voucher Wallet') }}</span>
+                                <h4 class="font-serif font-bold text-stone-900 text-base">{{ __('Your Reward Vouchers') }}</h4>
                             </div>
                             <span class="px-2.5 py-1 rounded-full text-[11px] font-bold bg-[#EFE5D3] text-stone-800">
-                                {{ $guest->redemptions->count() }} Vouchers
+                                {{ $guest->redemptions->count() }} {{ __('Vouchers') }}
                             </span>
                         </div>
 
@@ -461,22 +471,22 @@
                                         <div class="flex items-center space-x-2">
                                             <span class="font-mono font-bold text-sm text-[#8A6319]">{{ $rdm->voucher_code }}</span>
                                             @if($rdm->status === 'aktif')
-                                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">Active</span>
+                                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-800 border border-emerald-200">{{ __('Active') }}</span>
                                             @else
-                                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-stone-200 text-stone-700">Redeemed</span>
+                                                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-stone-200 text-stone-700">{{ __('Redeemed') }}</span>
                                             @endif
                                         </div>
-                                        <p class="font-bold text-stone-900 mt-1">{{ $rdm->item_title }}</p>
+                                        <p class="font-bold text-stone-900 mt-1">{{ __($rdm->item_title) }}</p>
                                         @if($rdm->selected_option)
-                                            <p class="text-[11px] text-[#8A6319]">Option: {{ $rdm->selected_option }}</p>
+                                            <p class="text-[11px] text-[#8A6319]">{{ __('Option:') }} {{ __($rdm->selected_option) }}</p>
                                         @endif
                                     </div>
                                     <div class="flex items-center space-x-2 shrink-0">
                                         <button type="button" 
-                                                onclick="viewVoucherModal('{{ $rdm->voucher_code }}', '{{ addslashes($rdm->item_title) }}', '{{ addslashes($rdm->selected_option ?: ($rdm->item_detail ?: '')) }}', {{ $rdm->points_cost }}, '{{ $rdm->redeemed_at ? $rdm->redeemed_at->translatedFormat('d M Y, H:i') : $rdm->created_at->translatedFormat('d M Y') }}', '{{ $rdm->status }}')"
+                                                onclick="viewVoucherModal('{{ $rdm->voucher_code }}', '{{ addslashes(__($rdm->item_title)) }}', '{{ addslashes($rdm->selected_option ? __($rdm->selected_option) : ($rdm->item_detail ? __($rdm->item_detail) : '')) }}', {{ $rdm->points_cost }}, '{{ $rdm->redeemed_at ? $rdm->redeemed_at->translatedFormat('d M Y, H:i') : $rdm->created_at->translatedFormat('d M Y') }}', '{{ $rdm->status }}')"
                                                 class="px-3 py-1.5 rounded-xl bg-stone-950 text-amber-300 font-bold hover:bg-stone-800 transition flex items-center space-x-1.5 shadow-sm text-xs">
                                             <i data-lucide="ticket" class="w-3.5 h-3.5"></i>
-                                            <span>View E-Voucher</span>
+                                            <span>{{ __('View E-Voucher') }}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -492,11 +502,11 @@
         <div class="pt-6 border-t border-[#E8DFC8]">
             <div class="flex items-center justify-between mb-4">
                 <div>
-                    <span class="text-xs uppercase font-serif tracking-widest text-[#8A6319] font-bold">Accumulation History</span>
-                    <h3 class="font-serif font-black text-stone-900 text-lg">Your Reservation & Point Records</h3>
+                    <span class="text-xs uppercase font-serif tracking-widest text-[#8A6319] font-bold">{{ __('Accumulation History') }}</span>
+                    <h3 class="font-serif font-black text-stone-900 text-lg">{{ __('Your Reservation & Point Records') }}</h3>
                 </div>
                 <span class="text-xs text-stone-600 font-medium">
-                    Total: {{ $guest->stays->count() }} Transactions
+                    {{ __('Total:') }} {{ $guest->stays->count() }} {{ __('Transactions') }}
                 </span>
             </div>
 
@@ -505,12 +515,12 @@
                     <table class="w-full text-left text-xs sm:text-sm text-stone-700">
                         <thead class="bg-[#F5EDE0] text-xs uppercase tracking-wider text-stone-900 border-b border-[#D8C9AF] font-bold">
                             <tr>
-                                <th class="px-5 py-3.5">Date</th>
-                                <th class="px-5 py-3.5">Booking Code</th>
-                                <th class="px-5 py-3.5">Category</th>
-                                <th class="px-5 py-3.5">Details</th>
-                                <th class="px-5 py-3.5 text-right">Points Earned</th>
-                                <th class="px-5 py-3.5">Notes</th>
+                                <th class="px-5 py-3.5">{{ __('Date') }}</th>
+                                <th class="px-5 py-3.5">{{ __('Booking Code') }}</th>
+                                <th class="px-5 py-3.5">{{ __('Category') }}</th>
+                                <th class="px-5 py-3.5">{{ __('Details') }}</th>
+                                <th class="px-5 py-3.5 text-right">{{ __('Points Earned') }}</th>
+                                <th class="px-5 py-3.5">{{ __('Notes') }}</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[#EAE0CD]">
@@ -525,7 +535,7 @@
                                     <td class="px-5 py-4 whitespace-nowrap">
                                         @if($stay->transaction_type === 'banquet')
                                             <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-[#F5EDDE] text-[#7A5210] border border-[#DEC8A4]">
-                                                Banquet Revenue
+                                                {{ __('Banquet Revenue') }}
                                             </span>
                                         @else
                                             <span class="px-2.5 py-1 rounded-md text-xs font-semibold bg-[#FAF6EE] text-stone-800 border border-[#D8C9AF]">
@@ -537,14 +547,14 @@
                                         @if($stay->transaction_type === 'banquet')
                                             Rp {{ number_format($stay->revenue_amount ?? 0, 0, ',', '.') }}
                                         @else
-                                            {{ $stay->nights }} Night(s)
+                                            {{ $stay->nights }} {{ __('Night(s)') }}
                                         @endif
                                     </td>
                                     <td class="px-5 py-4 text-right font-bold text-[#8A6319] whitespace-nowrap">
                                         +{{ number_format($stay->points_added) }} Pts
                                     </td>
                                     <td class="px-5 py-4 text-xs text-stone-600">
-                                        {{ $stay->notes ?: 'Recorded automatically' }}
+                                        {{ $stay->notes ?: __('Recorded automatically') }}
                                     </td>
                                 </tr>
                             @endforeach
@@ -553,7 +563,7 @@
                 </div>
             @else
                 <div class="text-center py-8 text-stone-600">
-                    <p class="font-medium text-xs">No transaction records found for this member account yet.</p>
+                    <p class="font-medium text-xs">{{ __('No transaction records found for this member account yet.') }}</p>
                 </div>
             @endif
         </div>
@@ -563,807 +573,118 @@
 @endif
 
 <!-- ======================================================== -->
-<!-- 3. ABOUT SENYUM STAY PRIORITY                          -->
+<!-- 3. EXPLORE PROGRAM SECTIONS (DEDICATED PAGES HUB)       -->
 <!-- ======================================================== -->
-<section id="tentang" class="py-16 sm:py-24 border-b border-[#E8DFC8] bg-[#FAF7F2]">
+<section class="py-16 sm:py-24 border-b border-[#E8DFC8] bg-[#FAF7F2]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
             <span class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-[#F5EDDE] text-[#7A5210] border border-[#DEC8A4]">
-                <i data-lucide="gem" class="w-3.5 h-3.5 text-[#B8860B]"></i>
-                <span>Bespoke Yogyakarta Hospitality</span>
+                <i data-lucide="compass" class="w-3.5 h-3.5 text-[#B8860B]"></i>
+                <span>{{ __('Explore Program Features') }}</span>
             </span>
             <h2 class="text-3xl sm:text-4xl font-serif font-black text-stone-900 tracking-tight">
-                About Senyum Stay Priority
+                {{ __('Everything About Senyum Stay Priority') }}
             </h2>
             <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
-                Specially crafted for guests who appreciate refined hospitality in the heart of Yogyakarta. Our three pillars ensure every stay and event becomes a truly memorable experience.
+                {{ __('Select a section below to explore complete details for each loyalty privilege on its dedicated page.') }}
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            
-            <!-- Pillar 1 -->
-            <div class="p-8 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] shadow-md hover:shadow-xl hover:border-[#D4AF37] transition-all space-y-4">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md">
-                    <i data-lucide="hotel" class="w-7 h-7"></i>
-                </div>
-                <h3 class="font-serif font-black text-xl text-stone-900">Bespoke Hospitality</h3>
-                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
-                    Prime location on <a href="{{ config('hotel.maps_url', 'https://www.google.com/maps/search/?api=1&query=Grand+Senyum+Hotel+Yogyakarta') }}" target="_blank" rel="noopener noreferrer" class="text-[#8A6319] hover:underline font-semibold inline-flex items-center gap-1">Jalan Pangeran Diponegoro No.27 <i data-lucide="external-link" class="w-3 h-3 inline"></i></a>, near Tugu Monument and Malioboro. Enjoy bespoke comfort with complimentary Tugu station pick-up, early check-in, and late check-out.
-                </p>
-            </div>
-
-            <!-- Pillar 2 -->
-            <div class="p-8 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] shadow-md hover:shadow-xl hover:border-[#D4AF37] transition-all space-y-4">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md">
-                    <i data-lucide="coins" class="w-7 h-7"></i>
-                </div>
-                <h3 class="font-serif font-black text-xl text-stone-900">Genuine Point Rewards</h3>
-                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
-                    Earn points from every room night across Grand Deluxe to President Suite, plus banquet revenue rewards (+10 Pts per IDR 1,000,000).
-                </p>
-            </div>
-
-            <!-- Pillar 3 -->
-            <div class="p-8 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] shadow-md hover:shadow-xl hover:border-[#D4AF37] transition-all space-y-4">
-                <div class="w-14 h-14 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md">
-                    <i data-lucide="gift" class="w-7 h-7"></i>
-                </div>
-                <h3 class="font-serif font-black text-xl text-stone-900">Exclusive Rewards Redemption</h3>
-                <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
-                    Redeem points for exclusive GSH souvenirs, gourmet dining vouchers, electric bicycle rentals, and complimentary free room stays.
-                </p>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- ======================================================== -->
-<!-- 4. MEMBERSHIP TIERS & BENEFIT MATRIX             -->
-<!-- ======================================================== -->
-<section id="tier" class="py-16 sm:py-24 bg-[#FAF3E3]/50 border-b border-[#E8DFC8]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-[#EFE5D3] text-[#7A5210] border border-[#DEC8A4]">
-                <i data-lucide="award" class="w-3.5 h-3.5 text-[#B8860B]"></i>
-                <span>Guest Membership Tiers</span>
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-serif font-black text-stone-900 tracking-tight">
-                Membership Tiers & Exclusive Privileges
-            </h2>
-            <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
-                The more frequently you stay and host events at Grand Senyum Hotel, the higher tier privileges and rewards you will enjoy.
-            </p>
-        </div>
-
-        <!-- 3 Simple & Aesthetic VIP Cards Showcase -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-14">
-            
-            <!-- ============================================== -->
-            <!-- 1. SILVER PRIORITY CARD & DETAILS              -->
-            <!-- ============================================== -->
-            <div class="space-y-5 flex flex-col justify-between">
-                <!-- Physical-Style VIP Digital Card (Silver) -->
-                <div class="relative w-full aspect-[1011/639] rounded-3xl overflow-hidden border border-slate-400/40 shadow-2xl shadow-slate-900/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-slate-900/50 group">
-                    <img src="{{ asset('images/cards/card-silver.jpg') }}" alt="Silver Member Card" class="absolute inset-0 w-full h-full object-cover">
-
-                    <!-- Dynamic Cardholder Overlay -->
-                    <div class="absolute left-[5.5%] top-[65.2%] text-left pointer-events-none select-none z-10">
-                        <div class="text-[11px] sm:text-[13px] font-sans font-semibold tracking-[0.08em] uppercase text-stone-700 leading-tight">
-                            SILVER MEMBER
-                        </div>
-                        <div class="text-[13px] sm:text-[16px] font-sans font-semibold tracking-[0.14em] text-stone-800 mt-1 leading-tight">
-                            GSH 2610 1088
-                        </div>
-                        <div class="text-[8px] sm:text-[9.5px] font-sans font-light tracking-[0.06em] text-stone-500 mt-2 leading-tight">
-                            VALID THRU 11/27
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tier Benefit Card Box -->
-                <div class="p-6 rounded-3xl bg-[#FFFDF9] border border-[#DEC8A4] shadow-md flex-1 flex flex-col justify-between space-y-4">
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between pb-2.5 border-b border-[#E8DFC8]">
-                            <div>
-                                <span class="text-[10px] uppercase font-serif font-bold text-stone-600 tracking-wider">Entry Tier</span>
-                                <h3 class="text-xl font-serif font-black text-stone-900">Silver Member</h3>
-                            </div>
-                            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-stone-200 text-stone-800">
-                                ( 0 – 1000 Point )
-                            </span>
-                        </div>
-
-                        <p class="text-xs text-stone-700 leading-relaxed">
-                            Introductory membership for every registered guest. Enjoy instant dining discounts across all hotel restaurants.
-                        </p>
-
-                        <div class="space-y-1.5 pt-2 border-t border-[#E8DFC8] text-xs text-stone-800">
-                            @foreach($tiers['Silver']['benefits'] as $b)
-                                <div class="flex items-start space-x-2 font-medium">
-                                    <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5"></i>
-                                    <span>{{ $b }}</span>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div class="pt-3 border-t border-[#E8DFC8]">
-                        <span class="text-[11px] text-stone-600 block">Maximum Points Limit: <strong>1,000 Points</strong></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ============================================== -->
-            <!-- 2. GOLD PRIORITY CARD & DETAILS                -->
-            <!-- ============================================== -->
-            <div class="space-y-5 flex flex-col justify-between">
-                <!-- Physical-Style VIP Digital Card (Gold #d6ac57) -->
-                <div class="relative w-full aspect-[1011/639] rounded-3xl overflow-hidden border-2 border-[#d6ac57] shadow-2xl shadow-amber-950/40 transition-all duration-300 hover:-translate-y-2 hover:shadow-amber-950/60 group">
-                    <img src="{{ asset('images/cards/card-gold.jpg') }}" alt="Gold Member Card" class="absolute inset-0 w-full h-full object-cover">
-
-                    <!-- Dynamic Cardholder Overlay -->
-                    <div class="absolute left-[5.5%] top-[65.2%] text-left pointer-events-none select-none z-10">
-                        <div class="text-[11px] sm:text-[13px] font-sans font-semibold tracking-[0.08em] uppercase text-amber-100 leading-tight drop-shadow-sm">
-                            GOLD MEMBER
-                        </div>
-                        <div class="text-[13px] sm:text-[16px] font-sans font-semibold tracking-[0.14em] text-white mt-1 leading-tight drop-shadow-sm">
-                            GSH 2610 5022
-                        </div>
-                        <div class="text-[8px] sm:text-[9.5px] font-sans font-light tracking-[0.06em] text-amber-200/80 mt-2 leading-tight">
-                            VALID THRU 11/27
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tier Benefit Card Box -->
-                <div class="p-6 rounded-3xl bg-[#FFFDF9] border-2 border-[#d6ac57] shadow-xl relative overflow-hidden flex-1 flex flex-col justify-between space-y-4">
-                    <div class="absolute top-0 right-0 bg-gradient-to-l from-[#d6ac57] to-[#b38a36] text-slate-950 font-serif font-bold text-[9px] uppercase tracking-widest px-3.5 py-0.5 rounded-bl-xl shadow-sm">
-                        Popular
-                    </div>
-
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between pb-2.5 border-b border-[#DEC8A4]">
-                            <div>
-                                <span class="text-[10px] uppercase font-serif font-bold text-[#8A6319] tracking-wider">Mid Tier</span>
-                                <h3 class="text-xl font-serif font-black text-stone-900">Gold Member</h3>
-                            </div>
-                            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-gradient-to-r from-[#d6ac57] to-[#b38a36] text-slate-950">
-                                ( 1000 – 5000 Point )
-                            </span>
-                        </div>
-
-                        <p class="text-xs text-stone-700 leading-relaxed">
-                            Enjoy complimentary Tugu Station transfers, direct booking discounts, early check-in, and room upgrades.
-                        </p>
-
-                        <div class="space-y-1.5 pt-2 border-t border-[#DEC8A4] text-xs text-stone-800">
-                            @foreach($tiers['Gold']['benefits'] as $b)
-                                <div class="flex items-start space-x-2 font-medium">
-                                    <i data-lucide="check" class="w-4 h-4 text-[#d6ac57] shrink-0 mt-0.5"></i>
-                                    <span>{{ $b }}</span>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div class="pt-3 border-t border-[#DEC8A4]">
-                        <span class="text-[11px] text-amber-950 font-semibold block">Maximum Points Limit: <strong>5,000 Points</strong></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ============================================== -->
-            <!-- 3. PLATINUM VIP PRIORITY CARD & DETAILS        -->
-            <!-- ============================================== -->
-            <div class="space-y-5 flex flex-col justify-between">
-                <!-- Physical-Style VIP Digital Card (Platinum) -->
-                <div class="relative w-full aspect-[1011/639] rounded-3xl overflow-hidden border-2 border-amber-400/40 shadow-2xl shadow-stone-950/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-stone-950/70 group">
-                    <img src="{{ asset('images/cards/card-platinum.jpg') }}" alt="Platinum Member Card" class="absolute inset-0 w-full h-full object-cover">
-
-                    <!-- Dynamic Cardholder Overlay -->
-                    <div class="absolute left-[5.5%] top-[65.2%] text-left pointer-events-none select-none z-10">
-                        <div class="text-[11px] sm:text-[13px] font-sans font-semibold tracking-[0.08em] uppercase text-stone-200 leading-tight">
-                            PLATINUM VIP
-                        </div>
-                        <div class="text-[13px] sm:text-[16px] font-sans font-semibold tracking-[0.14em] text-[#d6ac57] mt-1 leading-tight">
-                            GSH 2610 8888
-                        </div>
-                        <div class="text-[8px] sm:text-[9.5px] font-sans font-light tracking-[0.06em] text-stone-400 mt-2 leading-tight">
-                            VALID THRU 11/27
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tier Benefit Card Box -->
-                <div class="p-6 rounded-3xl bg-[#FFFDF9] border-2 border-[#A881D4] shadow-xl relative overflow-hidden flex-1 flex flex-col justify-between space-y-4">
-                    <div class="absolute top-0 right-0 bg-indigo-600 text-white font-serif font-bold text-[9px] uppercase tracking-widest px-3.5 py-0.5 rounded-bl-xl shadow-sm">
-                        Highest
-                    </div>
-
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between pb-2.5 border-b border-[#DEC6F5]">
-                            <div>
-                                <span class="text-[10px] uppercase font-serif font-bold text-indigo-900 tracking-wider">Highest Tier</span>
-                                <h3 class="text-xl font-serif font-black text-stone-900">Platinum VIP</h3>
-                            </div>
-                            <span class="px-2.5 py-1 rounded-full text-xs font-bold bg-indigo-500 text-white">
-                                ( 5000 – 10.000 Point )
-                            </span>
-                        </div>
-
-                        <p class="text-xs text-stone-700 leading-relaxed">
-                            The pinnacle of luxury appreciation featuring a complimentary annual 1-night stay, birthday cake, special gift, and premier benefits.
-                        </p>
-
-                        <div class="space-y-1.5 pt-2 border-t border-[#DEC6F5] text-xs text-stone-800">
-                            @foreach($tiers['Platinum']['benefits'] as $b)
-                                <div class="flex items-start space-x-2 font-medium">
-                                    <i data-lucide="check" class="w-4 h-4 text-indigo-600 shrink-0 mt-0.5"></i>
-                                    <span>{{ $b }}</span>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                    <div class="pt-3 border-t border-[#DEC6F5]">
-                        <span class="text-[11px] text-indigo-950 font-semibold block">Maximum Accumulation Limit: <strong>10,000 Points</strong></span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ============================================== -->
-        <!-- WHEEL OF FORTUNE (LUCKY DRAW 5G GOLD PRIZE)    -->
-        <!-- ============================================== -->
-        <div class="mb-14 relative overflow-hidden rounded-3xl border-2 border-[#D4AF37] bg-gradient-to-br from-[#FFFDF9] via-[#FAF3E3] to-[#F3E5C8] p-6 sm:p-8 shadow-xl">
-            <div class="absolute -right-12 -top-12 w-48 h-48 bg-[#D4AF37]/15 rounded-full blur-2xl pointer-events-none"></div>
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-                <div class="flex items-center space-x-4 sm:space-x-6 text-center md:text-left">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-[#996515] via-[#D4AF37] to-[#FDF4CD] p-0.5 shadow-lg shrink-0 flex items-center justify-center">
-                        <div class="w-full h-full bg-[#1e1709] rounded-2xl flex items-center justify-center">
-                            <i data-lucide="sparkles" class="w-8 h-8 sm:w-10 sm:h-10 text-[#F5DE93] animate-pulse"></i>
-                        </div>
-                    </div>
-                    <div class="space-y-1.5">
-                        <div class="inline-flex items-center space-x-1.5 px-3 py-0.5 rounded-full bg-[#E5B54F]/20 text-[#7A5210] border border-[#DEC8A4] text-[10px] sm:text-xs font-bold uppercase tracking-widest">
-                            <i data-lucide="trophy" class="w-3.5 h-3.5 text-[#B8860B]"></i>
-                            <span>Grand Annual Lucky Draw</span>
-                        </div>
-                        <h3 class="text-2xl sm:text-3xl font-serif font-black text-stone-900 tracking-tight">
-                            Wheel of Fortune
-                        </h3>
-                        <p class="text-sm sm:text-base text-stone-800 font-semibold">
-                            Earn a minimum of 5,000 points for a chance to win a 5-gram gold prize!
-                        </p>
-                        <p class="text-xs text-stone-600 italic">
-                            *The lucky draw takes place at the end of each year.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="shrink-0">
-                    <div class="px-5 py-3 rounded-2xl bg-[#1e1709] text-white border border-[#D4AF37]/50 shadow-md text-center">
-                        <span class="text-[10px] uppercase tracking-widest text-[#D4AF37] font-bold block">Grand Prize</span>
-                        <span class="text-lg font-serif font-black text-[#F5DE93]">5-Gram Pure Gold Bar</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Comprehensive Side-by-Side Comparison Matrix (Mulia Privilege Style Table) -->
-        <div class="bg-[#FFFDF9] rounded-3xl border border-[#DEC8A4] p-6 sm:p-8 shadow-lg">
-            <h3 class="font-serif font-black text-xl text-stone-900 mb-4 pb-2 border-b border-[#E8DFC8] flex items-center">
-                <i data-lucide="table-2" class="w-5 h-5 mr-2 text-[#8A6319]"></i>
-                Complete Member Privileges & Benefits Comparison Matrix
-            </h3>
-
-            <div class="overflow-x-auto">
-                <table class="w-full text-left text-xs sm:text-sm text-stone-800">
-                    <thead class="bg-[#F5EDE0] text-xs font-bold uppercase tracking-wider text-stone-900 border-b border-[#D8C9AF]">
-                        <tr>
-                            <th class="px-4 py-3.5">Member Benefits & Privileges</th>
-                            <th class="px-4 py-3.5 text-center">Silver (0-1.000 Pts)</th>
-                            <th class="px-4 py-3.5 text-center bg-[#FAF3E3]">Gold (1.000-5.000 Pts)</th>
-                            <th class="px-4 py-3.5 text-center">Platinum (5.000-10.000 Pts)</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-[#EAE0CD]">
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Discount on F&B</td>
-                            <td class="px-4 py-3 text-center font-bold text-stone-900">5%</td>
-                            <td class="px-4 py-3 text-center font-bold text-amber-900 bg-[#FAF3E3]">10%</td>
-                            <td class="px-4 py-3 text-center font-bold text-indigo-950">15%</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Laundry Benefit / Discount</td>
-                            <td class="px-4 py-3 text-center font-bold text-stone-900">IDR 10,000 Disc</td>
-                            <td class="px-4 py-3 text-center font-bold text-amber-900 bg-[#FAF3E3]">Free 3 Pieces<div class="text-[10px] font-normal text-stone-600">(1 Top, 1 Bottom, 1 Undergarment)</div></td>
-                            <td class="px-4 py-3 text-center font-bold text-indigo-950">Free 5 Pieces<div class="text-[10px] font-normal text-stone-600">(1 Top, 1 Bottom, 3 Undergarments)</div></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Discount on Room Rates (Direct Booking)</td>
-                            <td class="px-4 py-3 text-center font-bold text-stone-900">IDR 25,000</td>
-                            <td class="px-4 py-3 text-center font-bold text-amber-900 bg-[#FAF3E3]">IDR 50,000</td>
-                            <td class="px-4 py-3 text-center font-bold text-indigo-950">IDR 100,000</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Early Check-in & Late Check-out Privileges</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center text-emerald-600 bg-[#FAF3E3]"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                            <td class="px-4 py-3 text-center text-emerald-600"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Complimentary Pick-up & Drop-off at Tugu Train Station</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center text-emerald-600 bg-[#FAF3E3]"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                            <td class="px-4 py-3 text-center text-emerald-600"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Complimentary Room Upgrade (Subject to Availability)</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center text-emerald-600 bg-[#FAF3E3]"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                            <td class="px-4 py-3 text-center text-emerald-600"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Complimentary E-Bike for 1 Hour</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center font-bold text-amber-900 bg-[#FAF3E3]">1 Person</td>
-                            <td class="px-4 py-3 text-center font-bold text-indigo-950">Up to 2 Persons</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">VIP Treatment</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center text-emerald-600 bg-[#FAF3E3]"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                            <td class="px-4 py-3 text-center text-emerald-600"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Complimentary Birthday Cake</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center text-stone-400 bg-[#FAF3E3]">-</td>
-                            <td class="px-4 py-3 text-center text-emerald-600"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Special Gift</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center text-stone-400 bg-[#FAF3E3]">-</td>
-                            <td class="px-4 py-3 text-center text-emerald-600"><i data-lucide="check" class="w-4 h-4 mx-auto"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Complimentary Room for 1 Night Stay Annually</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center text-stone-400 bg-[#FAF3E3]">-</td>
-                            <td class="px-4 py-3 text-center font-bold text-indigo-950 bg-indigo-50/50">1 Night Annually</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-3 font-semibold">Wheel of Fortune (Grand Lucky Draw 5g Gold)</td>
-                            <td class="px-4 py-3 text-center text-stone-400">-</td>
-                            <td class="px-4 py-3 text-center text-stone-400 bg-[#FAF3E3]">-</td>
-                            <td class="px-4 py-3 text-center font-bold text-amber-700 bg-amber-50/60"><i data-lucide="sparkles" class="w-4 h-4 mx-auto text-[#B8860B]"></i>Min. 5.000 Pts</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- ======================================================== -->
-<!-- 5. HOW TO EARN POINTS (ROOM & BANQUET)                -->
-<!-- ======================================================== -->
-<section id="perolehan" class="py-16 sm:py-24 bg-[#FAF7F2] border-b border-[#E8DFC8]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-[#F5EDDE] text-[#7A5210] border border-[#DEC8A4]">
-                <i data-lucide="calculator" class="w-3.5 h-3.5 text-[#B8860B]"></i>
-                <span>Point Accumulation Structure</span>
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-serif font-black text-stone-900 tracking-tight">
-                How to Earn Member Points
-            </h2>
-            <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
-                Points are earned automatically from room reservations per night as well as meetings and banquet events held at Grand Senyum Hotel.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
-            
-            <!-- Room Stays Point Rates -->
-            <div class="p-6 sm:p-8 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] shadow-md flex flex-col justify-between space-y-6">
-                <div>
-                    <div class="flex items-center space-x-3 pb-3 border-b border-[#E8DFC8] mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-bold shadow-sm">
-                            <i data-lucide="bed-double" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] block font-serif">Hotel Rooms</span>
-                            <h3 class="font-serif font-bold text-stone-900 text-lg">Points Value from Rooms (Per Night)</h3>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        @foreach($roomRates as $room => $pts)
-                            <div class="p-4 rounded-2xl bg-[#FAF6EE] border border-[#D8C9AF] flex items-center justify-between">
-                                <div>
-                                    <span class="text-xs text-stone-600 block">Room Category</span>
-                                    <h4 class="font-serif font-bold text-stone-900 text-sm">{{ $room }}</h4>
-                                </div>
-                                <div class="text-right">
-                                    <span class="font-mono font-black text-lg text-[#8A6319]">+{{ $pts }}</span>
-                                    <span class="text-[10px] text-stone-600 block uppercase font-bold">Points / Night</span>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-
-                <div class="p-4 rounded-2xl bg-[#F5EDE0] text-xs text-stone-700 space-y-1">
-                    <p class="font-bold text-stone-900 flex items-center"><i data-lucide="info" class="w-3.5 h-3.5 mr-1 text-[#8A6319]"></i> Room Reservation Terms:</p>
-                    <p>Points are automatically credited to your member account upon check-out processing by the hotel reception.</p>
-                </div>
-            </div>
-
-            <!-- Banquet Revenue Rate -->
-            <div class="p-6 sm:p-8 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] shadow-md flex flex-col justify-between space-y-6">
-                <div>
-                    <div class="flex items-center space-x-3 pb-3 border-b border-[#E8DFC8] mb-4">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-bold shadow-sm">
-                            <i data-lucide="sparkles" class="w-5 h-5"></i>
-                        </div>
-                        <div>
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] block font-serif">Banquet & Events</span>
-                            <h3 class="font-serif font-bold text-stone-900 text-lg">Nilai Poin dari Banquet Revenue</h3>
-                        </div>
-                    </div>
-
-                    <div class="p-6 rounded-3xl bg-gradient-to-br from-[#FAF3E3] via-[#FFFDF9] to-[#F5EAD4] border-2 border-[#D4AF37] space-y-4">
-                        <div class="flex items-baseline justify-between">
-                            <span class="text-xs uppercase font-serif font-bold text-[#8A6319]">Banquet Calculation</span>
-                            <span class="font-mono font-black text-2xl text-[#8A6319]">+10 Points</span>
-                        </div>
-                        <p class="font-serif font-bold text-stone-900 text-base">
-                            Earn 10 Points for every IDR 1,000,000 in qualifying banquet revenue
-                        </p>
-                        <p class="text-xs text-stone-700 leading-relaxed">
-                            Applies in full multiples for ballroom bookings, meeting packages, weddings, and gala dinners.
-                        </p>
-
-                        <!-- Example Calculations -->
-                        <div class="grid grid-cols-3 gap-2 pt-2 border-t border-[#DEC8A4] text-center text-xs">
-                            <div class="p-2.5 rounded-xl bg-[#FFFDF9] border border-[#DEC8A4]">
-                                <span class="text-[10px] text-stone-600 block">IDR 5 Million</span>
-                                <span class="font-bold text-[#8A6319]">50 Pts</span>
-                            </div>
-                            <div class="p-2.5 rounded-xl bg-[#FFFDF9] border border-[#DEC8A4]">
-                                <span class="text-[10px] text-stone-600 block">IDR 20 Million</span>
-                                <span class="font-bold text-[#8A6319]">200 Pts</span>
-                            </div>
-                            <div class="p-2.5 rounded-xl bg-[#FFFDF9] border border-[#DEC8A4]">
-                                <span class="text-[10px] text-stone-600 block">IDR 50 Million</span>
-                                <span class="font-bold text-[#8A6319]">500 Pts</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-4 rounded-2xl bg-[#F5EDE0] text-xs text-stone-700 space-y-1">
-                    <p class="font-bold text-stone-900 flex items-center"><i data-lucide="info" class="w-3.5 h-3.5 mr-1 text-[#8A6319]"></i> Banquet Event Terms:</p>
-                    <p>Points are calculated based on official billing before tax and service charge, applicable for direct bookings with GSH banquet sales.</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-<!-- ======================================================== -->
-<!-- 6. REWARDS REDEMPTION CATALOG (REDEEM POINTS)             -->
-<!-- ======================================================== -->
-<section id="katalog" class="py-16 sm:py-24 bg-[#FAF3E3]/50 border-b border-[#E8DFC8]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
-            <span class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-[#EFE5D3] text-[#7A5210] border border-[#DEC8A4]">
-                <i data-lucide="gift" class="w-3.5 h-3.5 text-[#B8860B]"></i>
-                <span>Exclusive Rewards Collection</span>
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-serif font-black text-stone-900 tracking-tight">
-                Rewards Redemption Catalog
-            </h2>
-            <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
-                Redeem your accumulated points for official Grand Senyum Hotel souvenirs, dining vouchers, E-bike rentals, or complimentary room stays.
-            </p>
-        </div>
-
-        {{-- Alert Sukses Redeem Poin --}}
-        @if(session('redeem_success'))
-            <div class="mb-10 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FAF3E3] via-[#FFFDF9] to-[#F5EAD4] border-2 border-[#D4AF37] shadow-xl text-stone-900 space-y-4">
-                <div class="flex items-center space-x-3.5">
-                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md">
-                        <i data-lucide="sparkles" class="w-6 h-6"></i>
-                    </div>
-                    <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-[#8A6319]">Reward Redemption Successful!</span>
-                        <h3 class="font-serif font-black text-2xl text-stone-900">Your E-Voucher is Ready to Use</h3>
-                    </div>
-                </div>
-
-                <div class="p-5 rounded-2xl bg-[#FFFDF9] border border-[#DEC8A4] flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
-                    <div>
-                        <span class="text-[11px] uppercase tracking-wider text-stone-600 font-bold block">Official Voucher Code</span>
-                        <div class="flex items-center space-x-2 mt-0.5">
-                            <span class="font-mono font-black text-2xl sm:text-3xl text-[#8A6319] tracking-wider">{{ session('redeem_success.voucher_code') }}</span>
-                            <button type="button" onclick="copyVoucherCode('{{ session('redeem_success.voucher_code') }}')" class="p-1.5 rounded-lg bg-[#FAF6EE] hover:bg-[#F5ECD8] text-stone-700 hover:text-stone-950 transition border border-[#D8C9AF]" title="Copy Code">
-                                <i data-lucide="copy" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                        <p class="font-serif font-bold text-stone-900 text-base mt-2">
-                            {{ session('redeem_success.item_title') }}
-                            @if(session('redeem_success.selected_option'))
-                                <span class="text-xs font-semibold text-[#8A6319] block sm:inline sm:ml-1">({{ session('redeem_success.selected_option') }})</span>
-                            @endif
-                        </p>
-                        <p class="text-xs text-stone-700 mt-0.5">{{ session('redeem_success.item_detail') }}</p>
-                    </div>
-                    <div class="text-left sm:text-right sm:border-l sm:pl-6 border-[#DEC8A4]">
-                        <span class="text-[11px] text-stone-600 font-bold uppercase tracking-wider block">Points Deducted</span>
-                        <span class="font-mono font-bold text-rose-600 text-lg">-{{ number_format(session('redeem_success.points_cost')) }} Pts</span>
-                        <span class="text-[11px] text-stone-600 font-bold uppercase tracking-wider block mt-1">Remaining Balance:</span>
-                        <span class="font-serif font-black text-[#8A6319] text-xl">{{ number_format(session('redeem_success.points_after')) }} Pts</span>
-                    </div>
-                </div>
-
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-stone-700 pt-1">
-                    <span class="flex items-center">
-                        <i data-lucide="info" class="w-4 h-4 mr-1.5 text-[#8A6319] shrink-0"></i>
-                        Present this e-voucher code to the Front Desk or Restaurant staff upon physical redemption at Grand Senyum Hotel.
-                    </span>
-                    <button type="button" 
-                            onclick="viewVoucherModal('{{ session('redeem_success.voucher_code') }}', '{{ addslashes(session('redeem_success.item_title')) }}', '{{ addslashes(session('redeem_success.selected_option') ?: (session('redeem_success.item_detail') ?: '')) }}', {{ session('redeem_success.points_cost') }}, '{{ now()->translatedFormat('d M Y, H:i') }}', 'aktif')"
-                            class="px-5 py-2.5 rounded-xl bg-stone-950 text-amber-300 font-bold hover:bg-stone-800 transition flex items-center space-x-1.5 shadow-md">
-                        <i data-lucide="ticket" class="w-4 h-4"></i>
-                        <span>View & Print E-Voucher</span>
-                    </button>
-                </div>
-            </div>
-        @endif
-
-        <!-- Filter Tabs: All Rewards / 100 Points / 500 Points / 1,000 Points -->
-        <div class="flex flex-wrap items-center justify-center gap-2 mb-10">
-            <button type="button" onclick="filterCatalog('all')" id="catalog-tab-all" class="catalog-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-stone-950 text-white shadow-md transition">
-                All Rewards
-            </button>
-            <button type="button" onclick="filterCatalog(100)" id="catalog-tab-100" class="catalog-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FFFDF9] text-stone-700 hover:bg-[#F5ECD8] border border-[#DEC8A4] shadow-sm transition">
-                100 Pointsts
-            </button>
-            <button type="button" onclick="filterCatalog(500)" id="catalog-tab-500" class="catalog-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FFFDF9] text-stone-700 hover:bg-[#F5ECD8] border border-[#DEC8A4] shadow-sm transition">
-                500 Pointsts
-            </button>
-            <button type="button" onclick="filterCatalog(1000)" id="catalog-tab-1000" class="catalog-tab-btn px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FFFDF9] text-stone-700 hover:bg-[#F5ECD8] border border-[#DEC8A4] shadow-sm transition">
-                1,000 Points (Free Stay)
-            </button>
-        </div>
-
-        <!-- Catalog Items Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <!-- Category 100 Pts Items -->
-            @foreach($redeemCatalog[100]['items'] as $item)
-                <div class="catalog-card catalog-tier-100 p-6 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] hover:border-[#D4AF37] hover:shadow-xl transition-all flex flex-col justify-between space-y-5">
-                    <div>
-                        <div class="flex items-center justify-between pb-3 border-b border-[#E8DFC8]">
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#F5EDDE] text-[#7A5210] border border-[#DEC8A4]">
-                                {{ $item['badge'] }}
-                            </span>
-                            <span class="font-mono font-black text-sm text-[#8A6319]">100 Points</span>
-                        </div>
-                        <h4 class="font-serif font-black text-stone-900 text-lg mt-3">{{ $item['title'] }}</h4>
-                        <p class="text-xs text-stone-700 mt-1.5 leading-relaxed">{{ $item['detail'] }}</p>
+            <!-- 1. About Priority Card -->
+            <a href="{{ route('guest.about', ['lang' => app()->getLocale()]) }}" class="group p-7 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] hover:border-[#D4AF37] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-5">
+                <div class="space-y-4">
+                    <div class="w-13 h-13 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md group-hover:scale-110 transition-transform">
+                        <i data-lucide="gem" class="w-6 h-6"></i>
                     </div>
+                    <span class="inline-block text-[10px] uppercase font-bold tracking-widest text-[#8A6319] font-serif">{{ __('Philosophy & Location') }}</span>
+                    <h3 class="font-serif font-black text-xl text-stone-900 group-hover:text-[#8A6319] transition">{{ __('About Senyum Stay') }}</h3>
+                    <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                        {{ __('Three core pillars of refined Yogyakarta hospitality near Tugu & Malioboro. Discover our philosophy and privileges.') }}
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-[#E8DFC8] flex items-center justify-between text-xs font-bold text-[#8A6319]">
+                    <span>{{ __('Explore About Page') }}</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </a>
 
-                    <div class="pt-4 border-t border-[#E8DFC8]">
-                        @if($guest)
-                            @if($guest->points >= 100)
-                                <button type="button" 
-                                        onclick="openRedeemModal('{{ $item['id'] }}', '{{ addslashes($item['title']) }}', 100, '{{ addslashes($item['detail']) }}', {{ json_encode($item['options'] ?? []) }})"
-                                        class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#DFB85B] to-[#B8860B] hover:from-[#B8860B] hover:to-[#D4AF37] text-stone-950 font-serif font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow transition flex items-center justify-center space-x-1.5">
-                                    <i data-lucide="gift" class="w-4 h-4"></i>
-                                    <span>Redeem 100 Pts</span>
-                                </button>
-                            @else
-                                <button type="button" disabled 
-                                        class="w-full py-3 px-4 rounded-xl bg-[#EAE3D5] text-stone-500 font-bold text-xs cursor-not-allowed border border-[#D8C9AF] flex items-center justify-center space-x-1.5">
-                                    <i data-lucide="lock" class="w-3.5 h-3.5"></i>
-                                    <span>Need {{ number_format(100 - $guest->points) }} more Pts</span>
-                                </button>
-                            @endif
-                        @else
-                            <a href="#cek-poin" 
-                               class="w-full py-3 px-4 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-1.5">
-                                <span>Check Points & Redeem</span>
-                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                            </a>
-                        @endif
+            <!-- 2. Membership Tiers Card -->
+            <a href="{{ route('guest.tiers', ['lang' => app()->getLocale()]) }}" class="group p-7 rounded-3xl bg-[#FFFDF9] border-2 border-[#D4AF37]/50 hover:border-[#D4AF37] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-5 relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-gradient-to-l from-[#d6ac57] to-[#b38a36] text-slate-950 font-serif font-bold text-[9px] uppercase tracking-widest px-3.5 py-0.5 rounded-bl-xl shadow-sm">
+                    {{ __('VIP Tiers') }}
+                </div>
+                <div class="space-y-4">
+                    <div class="w-13 h-13 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md group-hover:scale-110 transition-transform">
+                        <i data-lucide="award" class="w-6 h-6"></i>
                     </div>
+                    <span class="inline-block text-[10px] uppercase font-bold tracking-widest text-[#8A6319] font-serif">{{ app()->getLocale() === 'id' ? 'Tingkatan VIP Silver • Gold • Platinum' : 'Silver • Gold • Platinum VIP' }}</span>
+                    <h3 class="font-serif font-black text-xl text-stone-900 group-hover:text-[#8A6319] transition">{{ __('Membership Tiers & Privileges') }}</h3>
+                    <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                        {{ __('Digital VIP physical cards, up to IDR 100,000 stay discounts, Tugu Station transfers, free laundry, and 5g pure gold grand prize.') }}
+                    </p>
                 </div>
-            @endforeach
+                <div class="pt-3 border-t border-[#DEC8A4] flex items-center justify-between text-xs font-bold text-[#8A6319]">
+                    <span>{{ __('View Membership Tiers') }}</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </a>
 
-            <!-- Category 500 Pts Items -->
-            @foreach($redeemCatalog[500]['items'] as $item)
-                <div class="catalog-card catalog-tier-500 p-6 rounded-3xl bg-[#FFFDF9] border border-[#DEC8A4] hover:border-[#D4AF37] hover:shadow-xl transition-all flex flex-col justify-between space-y-5">
-                    <div>
-                        <div class="flex items-center justify-between pb-3 border-b border-[#E8DFC8]">
-                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-[#FAF3E3] text-[#7A5210] border border-[#D4AF37]">
-                                {{ $item['badge'] }}
-                            </span>
-                            <span class="font-mono font-black text-sm text-[#8A6319]">500 Points</span>
-                        </div>
-                        <h4 class="font-serif font-black text-stone-900 text-lg mt-3">{{ $item['title'] }}</h4>
-                        <p class="text-xs text-stone-700 mt-1.5 leading-relaxed">{{ $item['detail'] }}</p>
-                        @if(!empty($item['options']))
-                            <div class="mt-2.5 p-2.5 rounded-xl bg-[#FAF6EE] border border-[#D8C9AF] text-[11px] text-[#8A6319] font-medium">
-                                <span class="font-bold block text-stone-900 mb-0.5">Merchandise Options:</span>
-                                {{ implode(', ', $item['options']) }}
-                            </div>
-                        @endif
+            <!-- 3. How to Earn Points Card -->
+            <a href="{{ route('guest.earn', ['lang' => app()->getLocale()]) }}" class="group p-7 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] hover:border-[#D4AF37] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-5">
+                <div class="space-y-4">
+                    <div class="w-13 h-13 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md group-hover:scale-110 transition-transform">
+                        <i data-lucide="calculator" class="w-6 h-6"></i>
                     </div>
+                    <span class="inline-block text-[10px] uppercase font-bold tracking-widest text-[#8A6319] font-serif">{{ __('Room & Banquet Events') }}</span>
+                    <h3 class="font-serif font-black text-xl text-stone-900 group-hover:text-[#8A6319] transition">{{ __('How to Earn Points') }}</h3>
+                    <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                        {{ __('Earn 10 to 30 points per room night and +10 points for every IDR 1,000,000 in meeting & banquet revenue.') }}
+                    </p>
+                </div>
+                <div class="pt-3 border-t border-[#E8DFC8] flex items-center justify-between text-xs font-bold text-[#8A6319]">
+                    <span>{{ __('View Earning Rules') }}</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </a>
 
-                    <div class="pt-4 border-t border-[#E8DFC8]">
-                        @if($guest)
-                            @if($guest->points >= 500)
-                                <button type="button" 
-                                        onclick="openRedeemModal('{{ $item['id'] }}', '{{ addslashes($item['title']) }}', 500, '{{ addslashes($item['detail']) }}', {{ json_encode($item['options'] ?? []) }})"
-                                        class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#DFB85B] to-[#B8860B] hover:from-[#B8860B] hover:to-[#D4AF37] text-stone-950 font-serif font-bold text-xs uppercase tracking-wider shadow-sm hover:shadow transition flex items-center justify-center space-x-1.5">
-                                    <i data-lucide="gift" class="w-4 h-4"></i>
-                                    <span>Redeem 500 Pts</span>
-                                </button>
-                            @else
-                                <button type="button" disabled 
-                                        class="w-full py-3 px-4 rounded-xl bg-[#EAE3D5] text-stone-500 font-bold text-xs cursor-not-allowed border border-[#D8C9AF] flex items-center justify-center space-x-1.5">
-                                    <i data-lucide="lock" class="w-3.5 h-3.5"></i>
-                                    <span>Need {{ number_format(500 - $guest->points) }} more Pts</span>
-                                </button>
-                            @endif
-                        @else
-                            <a href="#cek-poin" 
-                               class="w-full py-3 px-4 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-bold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-1.5">
-                                <span>Check Points & Redeem</span>
-                                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                            </a>
-                        @endif
+            <!-- 4. Rewards Catalog Card -->
+            <a href="{{ route('guest.catalog', ['lang' => app()->getLocale()]) }}" class="group p-7 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] hover:border-[#D4AF37] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-5">
+                <div class="space-y-4">
+                    <div class="w-13 h-13 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md group-hover:scale-110 transition-transform">
+                        <i data-lucide="gift" class="w-6 h-6"></i>
                     </div>
+                    <span class="inline-block text-[10px] uppercase font-bold tracking-widest text-[#8A6319] font-serif">{{ app()->getLocale() === 'id' ? '100 • 500 • 1.000 Poin' : '100 • 500 • 1,000 Points' }}</span>
+                    <h3 class="font-serif font-black text-xl text-stone-900 group-hover:text-[#8A6319] transition">{{ __('Rewards Catalog') }}</h3>
+                    <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                        {{ __('Redeem points for official GSH merchandise souvenirs, dining vouchers, electric bicycle rentals, or complimentary 1-night stays.') }}
+                    </p>
                 </div>
-            @endforeach
+                <div class="pt-3 border-t border-[#E8DFC8] flex items-center justify-between text-xs font-bold text-[#8A6319]">
+                    <span>{{ __('Browse Rewards Catalog') }}</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </a>
 
-            <!-- Category 1.000 Pts Item (Free Room Stay) -->
-            @foreach($redeemCatalog[1000]['items'] as $item)
-                <div class="catalog-card catalog-tier-1000 md:col-span-2 lg:col-span-3 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#FAF3E3] via-[#FFFDF9] to-[#F5EAD4] border-2 border-[#D4AF37] shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-6">
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-2">
-                            <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 uppercase tracking-widest font-serif">
-                                {{ $item['badge'] }}
-                            </span>
-                            <span class="font-mono font-black text-sm text-[#8A6319]">1,000 Points</span>
-                        </div>
-                        <h4 class="font-serif font-black text-2xl text-stone-900">{{ $item['title'] }}</h4>
-                        <p class="text-xs sm:text-sm text-stone-700 max-w-2xl leading-relaxed">{{ $item['detail'] }}</p>
+            <!-- 5. FAQ Card -->
+            <a href="{{ route('guest.faq', ['lang' => app()->getLocale()]) }}" class="group p-7 rounded-3xl bg-[#FFFDF9] border border-[#E6DAC3] hover:border-[#D4AF37] hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-5 md:col-span-2 lg:col-span-2">
+                <div class="space-y-4">
+                    <div class="w-13 h-13 rounded-2xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 flex items-center justify-center font-black shadow-md group-hover:scale-110 transition-transform">
+                        <i data-lucide="help-circle" class="w-6 h-6"></i>
                     </div>
-
-                    <div class="shrink-0 text-right">
-                        @if($guest)
-                            @if($guest->points >= 1000)
-                                <button type="button" 
-                                        onclick="openRedeemModal('{{ $item['id'] }}', '{{ addslashes($item['title']) }}', 1000, '{{ addslashes($item['detail']) }}', {{ json_encode($item['options'] ?? []) }})"
-                                        class="w-full md:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-700 hover:to-emerald-800 text-white font-serif font-bold text-xs uppercase tracking-wider shadow-lg transition flex items-center justify-center space-x-2">
-                                    <i data-lucide="gift" class="w-4 h-4"></i>
-                                    <span>Redeem (Complimentary 1-Night Stay)</span>
-                                </button>
-                            @else
-                                <button type="button" disabled 
-                                        class="w-full md:w-auto px-6 py-3 rounded-xl bg-[#EAE3D5] text-stone-500 font-bold text-xs cursor-not-allowed border border-[#D8C9AF] flex items-center justify-center space-x-2">
-                                    <i data-lucide="lock" class="w-3.5 h-3.5"></i>
-                                    <span>Need {{ number_format(1000 - $guest->points) }} more Pts</span>
-                                </button>
-                            @endif
-                        @else
-                            <a href="#cek-poin" 
-                               class="w-full md:w-auto px-8 py-3.5 rounded-xl bg-stone-900 hover:bg-stone-800 text-white font-serif font-bold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-2">
-                                <span>Access Account & Redeem</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </a>
-                        @endif
-                    </div>
+                    <span class="inline-block text-[10px] uppercase font-bold tracking-widest text-[#8A6319] font-serif">{{ __('Guest Guide & Help') }}</span>
+                    <h3 class="font-serif font-black text-xl text-stone-900 group-hover:text-[#8A6319] transition">{{ __('Frequently Asked Questions') }}</h3>
+                    <p class="text-xs sm:text-sm text-stone-700 leading-relaxed">
+                        {{ __('Frequently asked questions regarding membership enrollment, point validity, tier caps, station pick-up requests, and official e-vouchers.') }}
+                    </p>
                 </div>
-            @endforeach
-
-        </div>
-
-    </div>
-</section>
-
-<!-- ======================================================== -->
-<!-- 7. FAQ ACCORDION (FREQUENTLY ASKED QUESTIONS)        -->
-<!-- ======================================================== -->
-<section id="faq" class="py-16 sm:py-24 bg-[#FAF7F2] border-b border-[#E8DFC8]">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center mb-14 space-y-3">
-            <span class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-[#F5EDDE] text-[#7A5210] border border-[#DEC8A4]">
-                <i data-lucide="help-circle" class="w-3.5 h-3.5 text-[#B8860B]"></i>
-                <span>Help & Information</span>
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-serif font-black text-stone-900 tracking-tight">
-                Frequently Asked Questions
-            </h2>
-            <p class="text-stone-700 text-sm sm:text-base leading-relaxed">
-                Learn more about point accumulation rules, member tier privileges, and voucher redemption procedures.
-            </p>
-        </div>
-
-        <div class="space-y-4">
-            
-            <!-- FAQ 1 -->
-            <div class="faq-item rounded-2xl bg-[#FFFDF9] border border-[#E6DAC3] overflow-hidden">
-                <button type="button" onclick="toggleFaq(1)" class="w-full px-6 py-4.5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-stone-900 hover:text-[#8A6319] transition">
-                    <span>How do I enroll in Senyum Stay Priority membership?</span>
-                    <i data-lucide="chevron-down" id="faq-icon-1" class="w-4 h-4 text-[#8A6319] transition-transform duration-300"></i>
-                </button>
-                <div id="faq-content-1" class="hidden px-6 pb-5 pt-1 text-xs sm:text-sm text-stone-700 border-t border-[#E8DFC8] leading-relaxed">
-                    Every guest reserving a room or holding an event at Grand Senyum Hotel Yogyakarta is automatically enrolled into <strong>Senyum Stay Priority</strong> with a unique member number (GSH-xxxx format). Simply enter your full name or mobile phone number in the search form above to verify your points and tier status.
+                <div class="pt-3 border-t border-[#E8DFC8] flex items-center justify-between text-xs font-bold text-[#8A6319]">
+                    <span>{{ __('Open FAQ & Help Center') }}</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
                 </div>
-            </div>
-
-            <!-- FAQ 2 -->
-            <div class="faq-item rounded-2xl bg-[#FFFDF9] border border-[#E6DAC3] overflow-hidden">
-                <button type="button" onclick="toggleFaq(2)" class="w-full px-6 py-4.5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-stone-900 hover:text-[#8A6319] transition">
-                    <span>How many points do I earn from room stays and banquet events?</span>
-                    <i data-lucide="chevron-down" id="faq-icon-2" class="w-4 h-4 text-[#8A6319] transition-transform duration-300"></i>
-                </button>
-                <div id="faq-content-2" class="hidden px-6 pb-5 pt-1 text-xs sm:text-sm text-stone-700 border-t border-[#E8DFC8] leading-relaxed">
-                    Untuk reservasi kamar: Grand Deluxe (10 pts/malam), Grand Executive (15 pts/malam), Royal Suite (20 pts/malam), dan President Suite (30 pts/malam). Untuk pengadaan acara Banquet/Ballroom: Anda memperoleh +10 Points untuk setiap total revenue Rp 1.000.000,- (berlaku kelipatan).
-                </div>
-            </div>
-
-            <!-- FAQ 3 -->
-            <div class="faq-item rounded-2xl bg-[#FFFDF9] border border-[#E6DAC3] overflow-hidden">
-                <button type="button" onclick="toggleFaq(3)" class="w-full px-6 py-4.5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-stone-900 hover:text-[#8A6319] transition">
-                    <span>Is there a maximum point accumulation limit for each tier?</span>
-                    <i data-lucide="chevron-down" id="faq-icon-3" class="w-4 h-4 text-[#8A6319] transition-transform duration-300"></i>
-                </button>
-                <div id="faq-content-3" class="hidden px-6 pb-5 pt-1 text-xs sm:text-sm text-stone-700 border-t border-[#E8DFC8] leading-relaxed">
-                    Ya, untuk menjaga eksklusivitas program: Member <strong>Silver</strong> memiliki batas maksimal 1,000 Points, Member <strong>Gold</strong> memiliki batas maksimal 5.000 Poin, dan Member <strong>Platinum</strong> memiliki batas akumulasi maksimal 10.000 Poin. Poin yang telah mendekati atau mencapai batas dapat ditukarkan terlebih dahulu dengan hadiah di katalog.
-                </div>
-            </div>
-
-            <!-- FAQ 4 -->
-            <div class="faq-item rounded-2xl bg-[#FFFDF9] border border-[#E6DAC3] overflow-hidden">
-                <button type="button" onclick="toggleFaq(4)" class="w-full px-6 py-4.5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-stone-900 hover:text-[#8A6319] transition">
-                    <span>How do I claim Tugu Station pick-up & E-Bike privileges?</span>
-                    <i data-lucide="chevron-down" id="faq-icon-4" class="w-4 h-4 text-[#8A6319] transition-transform duration-300"></i>
-                </button>
-                <div id="faq-content-4" class="hidden px-6 pb-5 pt-1 text-xs sm:text-sm text-stone-700 border-t border-[#E8DFC8] leading-relaxed">
-                    Complimentary Tugu Station transfers and 1-hour free E-Bike privileges are reserved for Gold and Platinum members. You may confirm your train arrival schedule with our Concierge team via official WhatsApp (+62 812-2555-5555) at least 24 hours prior to arrival.
-                </div>
-            </div>
-
-            <!-- FAQ 5 -->
-            <div class="faq-item rounded-2xl bg-[#FFFDF9] border border-[#E6DAC3] overflow-hidden">
-                <button type="button" onclick="toggleFaq(5)" class="w-full px-6 py-4.5 text-left flex items-center justify-between text-sm sm:text-base font-bold text-stone-900 hover:text-[#8A6319] transition">
-                    <span>How do I use my reward redemption E-Voucher?</span>
-                    <i data-lucide="chevron-down" id="faq-icon-5" class="w-4 h-4 text-[#8A6319] transition-transform duration-300"></i>
-                </button>
-                <div id="faq-content-5" class="hidden px-6 pb-5 pt-1 text-xs sm:text-sm text-stone-700 border-t border-[#E8DFC8] leading-relaxed">
-                    After successfully redeeming points in the catalog, the system issues an official E-Voucher with a unique code. Simply display the code on your smartphone or print the voucher when visiting the Front Desk or Grand Senyum Hotel restaurant.
-                </div>
-            </div>
+            </a>
 
         </div>
 
@@ -1381,13 +702,13 @@
             <div class="space-y-4 max-w-2xl relative z-10 text-center lg:text-left">
                 <span class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-amber-500/20 text-[#EBD195] border border-amber-500/30">
                     <i data-lucide="phone-call" class="w-3.5 h-3.5 text-[#D4AF37]"></i>
-                    <span>24/7 Concierge Service</span>
+                    <span>{{ __('24/7 Concierge Service') }}</span>
                 </span>
                 <h3 class="text-2xl sm:text-4xl font-serif font-black text-white">
-                    Need Assistance with Your Membership?
+                    {{ __('Need Assistance with Your Membership?') }}
                 </h3>
                 <p class="text-xs sm:text-sm text-stone-300 leading-relaxed">
-                    Grand Senyum Hotel reservation and Front Desk staff are at your service 24 hours a day for membership registration, station transfer bookings, and room reservations with tier discounts.
+                    {{ __('Grand Senyum Hotel reservation and Front Desk staff are at your service 24 hours a day for membership registration, station transfer bookings, and room reservations with tier discounts.') }}
                 </p>
             </div>
 
@@ -1395,12 +716,12 @@
                 <a href="https://wa.me/{{ config('hotel.whatsapp') }}?text={{ urlencode('Hello Concierge Grand Senyum Hotel, I would like to inquire about hotel services and Senyum Stay Priority membership.') }}" target="_blank" rel="noopener noreferrer" 
                    class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] hover:brightness-105 text-slate-950 font-serif font-bold text-xs uppercase tracking-wider shadow-lg flex items-center justify-center space-x-2 transition">
                     <i data-lucide="message-circle" class="w-4 h-4"></i>
-                    <span>WhatsApp Concierge ({{ config('hotel.whatsapp_display') }})</span>
+                    <span>{{ __('WhatsApp Concierge') }} ({{ config('hotel.whatsapp_display') }})</span>
                 </a>
                 <a href="#cek-poin" 
                    class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-serif font-bold text-xs uppercase tracking-wider flex items-center justify-center space-x-2 transition">
                     <i data-lucide="search" class="w-4 h-4"></i>
-                    <span>Check Points Now</span>
+                    <span>{{ __('Check Points Now') }}</span>
                 </a>
             </div>
         </div>
@@ -1422,7 +743,7 @@
             </div>
             <div>
                 <span class="text-[11px] font-bold uppercase tracking-wider text-[#8A6319]">Senyum Stay Priority</span>
-                <h3 class="font-serif font-black text-xl text-stone-900">Confirm Reward Redemption</h3>
+                <h3 class="font-serif font-black text-xl text-stone-900">{{ __('Confirm Reward Redemption') }}</h3>
             </div>
         </div>
 
@@ -1434,26 +755,26 @@
             <!-- Ringkasan Tamu & Saldo -->
             <div class="p-4 rounded-2xl bg-[#FAF6EE] border border-[#D8C9AF] text-xs space-y-2">
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Member Name:</span>
+                    <span class="text-stone-600">{{ __('Member Name:') }}</span>
                     <span class="font-bold text-stone-900">{{ $guest->name ?? '' }} ({{ $guest->member_number ?? '' }})</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Current Point Balance:</span>
-                    <span class="font-bold text-stone-900" id="modal-guest-points">{{ number_format($guest->points ?? 0) }} Pts</span>
+                    <span class="text-stone-600">{{ __('Current Point Balance:') }}</span>
+                    <span class="font-bold text-stone-900" id="modal-guest-points">{{ number_format($guest->points ?? 0) }} {{ app()->getLocale() === 'id' ? 'Poin' : 'Pts' }}</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Redemption Cost:</span>
-                    <span class="font-bold text-rose-600" id="modal-cost-points">-0 Pts</span>
+                    <span class="text-stone-600">{{ __('Redemption Cost:') }}</span>
+                    <span class="font-bold text-rose-600" id="modal-cost-points">-0 {{ app()->getLocale() === 'id' ? 'Poin' : 'Pts' }}</span>
                 </div>
                 <div class="pt-2 border-t border-[#D8C9AF] flex justify-between font-bold text-sm">
-                    <span class="text-stone-800">Your Remaining Balance:</span>
-                    <span class="text-[#8A6319]" id="modal-remaining-points">0 Pts</span>
+                    <span class="text-stone-800">{{ __('Your Remaining Balance:') }}</span>
+                    <span class="text-[#8A6319]" id="modal-remaining-points">0 {{ app()->getLocale() === 'id' ? 'Poin' : 'Pts' }}</span>
                 </div>
             </div>
 
             <!-- Detail Hadiah yang Dipilih -->
             <div class="p-4 rounded-2xl bg-[#FBF3E2] border border-[#DEC8A4]">
-                <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] block">Selected Reward Item:</span>
+                <span class="text-[10px] font-bold uppercase tracking-wider text-[#8A6319] block">{{ __('Selected Reward Item:') }}</span>
                 <h4 class="font-serif font-bold text-stone-900 text-base mt-0.5" id="modal-item-title"></h4>
                 <p class="text-xs text-stone-700 mt-1 leading-relaxed" id="modal-item-detail"></p>
             </div>
@@ -1461,7 +782,7 @@
             <!-- Varian Pilihan (Jika ada pilihan options) -->
             <div id="modal-options-wrapper" class="hidden">
                 <label for="modal-selected-option" class="block text-xs font-bold uppercase tracking-wider text-stone-800 mb-1.5">
-                    Select Merchandise / Reward Option:
+                    {{ __('Select Merchandise / Reward Option:') }}
                 </label>
                 <select name="selected_option" id="modal-selected-option" class="w-full px-4 py-2.5 rounded-xl bg-[#FAF6EE] border border-[#D8C9AF] focus:bg-white focus:ring-2 focus:ring-[#C89B3C] outline-none text-stone-900 text-xs font-semibold">
                 </select>
@@ -1470,19 +791,19 @@
             <!-- Catatan opsional -->
             <div>
                 <label for="modal-notes" class="block text-xs font-bold uppercase tracking-wider text-stone-800 mb-1.5">
-                    Additional Notes (Optional):
+                    {{ __('Additional Notes (Optional):') }}
                 </label>
-                <input type="text" name="notes" id="modal-notes" placeholder="e.g. Pick up at hotel lobby in the afternoon" class="w-full px-4 py-2.5 rounded-xl bg-[#FAF6EE] border border-[#D8C9AF] focus:bg-white focus:ring-2 focus:ring-[#C89B3C] outline-none text-stone-900 text-xs font-medium">
+                <input type="text" name="notes" id="modal-notes" placeholder="{{ __('e.g. Pick up at hotel lobby in the afternoon') }}" class="w-full px-4 py-2.5 rounded-xl bg-[#FAF6EE] border border-[#D8C9AF] focus:bg-white focus:ring-2 focus:ring-[#C89B3C] outline-none text-stone-900 text-xs font-medium">
             </div>
 
             <!-- Tombol Aksi -->
             <div class="pt-2 flex items-center justify-end space-x-3">
                 <button type="button" onclick="closeRedeemModal()" class="px-5 py-2.5 rounded-xl border border-[#D8C9AF] font-bold text-stone-700 hover:bg-[#F5ECD8] text-xs transition">
-                    Batal
+                    {{ __('Cancel') }}
                 </button>
                 <button type="submit" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#DFB85B] to-[#B8860B] hover:from-[#B8860B] hover:to-[#D4AF37] text-stone-950 font-serif font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition flex items-center space-x-2">
                     <i data-lucide="check" class="w-4 h-4"></i>
-                    <span>Yes, Redeem Points</span>
+                    <span>{{ __('Yes, Redeem Points') }}</span>
                 </button>
             </div>
         </form>
@@ -1501,59 +822,59 @@
         <div id="printable-voucher" class="p-6 rounded-2xl bg-gradient-to-b from-[#FAF3E3]/80 via-[#FFFDF9] to-[#FAF3E3]/50 border-2 border-dashed border-[#D4AF37] space-y-4 text-center">
             <img src="{{ asset('images/logo.png') }}" alt="Grand Senyum Hotel" class="h-9 w-auto mx-auto object-contain">
             <div>
-                <span class="text-[10px] uppercase font-bold tracking-widest text-[#8A6319]">Official Reward Redemption E-Voucher</span>
+                <span class="text-[10px] uppercase font-bold tracking-widest text-[#8A6319]">{{ __('Official Reward Redemption E-Voucher') }}</span>
                 <h3 class="font-serif font-black text-xl text-stone-900 mt-0.5">Senyum Stay Priority</h3>
             </div>
 
             <div class="py-3 px-4 rounded-xl bg-[#FAF6EE] border border-[#DEC8A4] shadow-sm">
-                <span class="text-[10px] uppercase font-bold text-stone-600 block">Voucher Code</span>
+                <span class="text-[10px] uppercase font-bold text-stone-600 block">{{ __('Voucher Code') }}</span>
                 <span class="font-mono font-black text-2xl text-[#8A6319] tracking-wider block" id="preview-voucher-code"></span>
             </div>
 
             <div class="text-left space-y-2 text-xs py-2 border-y border-[#DEC8A4]">
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Guest Name:</span>
+                    <span class="text-stone-600">{{ __('Guest Name:') }}</span>
                     <span class="font-bold text-stone-900">{{ $guest->name ?? '-' }}</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Member Number:</span>
+                    <span class="text-stone-600">{{ __('Member Number:') }}</span>
                     <span class="font-mono font-bold text-stone-900">{{ $guest->member_number ?? '-' }}</span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Redeemed Item:</span>
+                    <span class="text-stone-600">{{ __('Redeemed Item:') }}</span>
                     <span class="font-bold text-stone-900 text-right" id="preview-voucher-title"></span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Details / Option:</span>
+                    <span class="text-stone-600">{{ __('Details / Option:') }}</span>
                     <span class="text-[#8A6319] font-semibold text-right" id="preview-voucher-detail"></span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Points Cost:</span>
+                    <span class="text-stone-600">{{ __('Points Cost:') }}</span>
                     <span class="font-bold text-rose-600 text-right" id="preview-voucher-cost"></span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-stone-600">Redemption Date:</span>
+                    <span class="text-stone-600">{{ __('Redemption Date:') }}</span>
                     <span class="text-stone-800 text-right" id="preview-voucher-date"></span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-stone-600">Voucher Status:</span>
+                    <span class="text-stone-600">{{ __('Voucher Status:') }}</span>
                     <span class="font-bold text-[11px] px-2.5 py-0.5 rounded-full" id="preview-voucher-status"></span>
                 </div>
             </div>
 
             <p class="text-[11px] text-stone-600 leading-relaxed">
-                Present this e-voucher to Grand Senyum Hotel Reception / F&B staff when claiming your physical reward.
+                {{ __('Present this e-voucher to Grand Senyum Hotel Reception / F&B staff when claiming your physical reward.') }}
             </p>
         </div>
 
         <div class="mt-5 flex items-center justify-between gap-3">
             <button type="button" onclick="copyModalVoucherCode()" class="flex-1 py-2.5 px-4 rounded-xl bg-[#FAF6EE] hover:bg-[#F5ECD8] text-stone-800 font-bold text-xs transition flex items-center justify-center space-x-1.5 border border-[#D8C9AF]">
                 <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-                <span>Copy Code</span>
+                <span>{{ __('Copy Code') }}</span>
             </button>
             <button type="button" onclick="window.print()" class="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] hover:brightness-105 text-stone-950 font-bold text-xs uppercase tracking-wider transition flex items-center justify-center space-x-1.5 shadow-sm">
                 <i data-lucide="printer" class="w-3.5 h-3.5"></i>
-                <span>Print Voucher</span>
+                <span>{{ __('Print Voucher') }}</span>
             </button>
         </div>
     </div>
@@ -1571,7 +892,7 @@
         const errMsg = document.getElementById('hero-search-error-msg');
 
         if (!name && !phone) {
-            errMsg.innerText = 'Please enter guest full name OR mobile phone number to check points.';
+            errMsg.innerText = "{{ __('Please enter guest full name OR mobile phone number to check points.') }}";
             errMsg.classList.remove('hidden');
             return false;
         }
@@ -1631,10 +952,10 @@
         
         const statusEl = document.getElementById('preview-voucher-status');
         if (status === 'aktif') {
-            statusEl.innerText = 'Active / Ready to Claim';
+            statusEl.innerText = "{{ __('Active / Ready to Claim') }}";
             statusEl.className = 'font-bold text-[11px] px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300';
         } else if (status === 'selesai') {
-            statusEl.innerText = 'Redeemed';
+            statusEl.innerText = "{{ __('Redeemed') }}";
             statusEl.className = 'font-bold text-[11px] px-2.5 py-0.5 rounded-full bg-stone-200 text-stone-700 border border-stone-300';
         } else {
             statusEl.innerText = status ? status.toUpperCase() : '-';

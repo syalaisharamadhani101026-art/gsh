@@ -64,6 +64,54 @@ class GuestPortalController extends Controller
     }
 
     /**
+     * Halaman Khusus: About Senyum Stay Priority
+     */
+    public function about()
+    {
+        return view('guest.about');
+    }
+
+    /**
+     * Halaman Khusus: Membership Tiers & Privileges
+     */
+    public function tiers()
+    {
+        return view('guest.tiers', [
+            'tiers' => Guest::TIERS,
+        ]);
+    }
+
+    /**
+     * Halaman Khusus: How to Earn Points
+     */
+    public function earn()
+    {
+        return view('guest.earn-points', [
+            'roomRates' => Guest::ROOM_RATES,
+            'banquetRevenuePerUnit' => Guest::BANQUET_REVENUE_PER_UNIT,
+            'banquetPointsPerUnit' => Guest::BANQUET_POINTS_PER_UNIT,
+        ]);
+    }
+
+    /**
+     * Halaman Khusus: Rewards Redemption Catalog
+     */
+    public function catalog()
+    {
+        return view('guest.rewards-catalog', [
+            'redeemCatalog' => Guest::REDEEM_CATALOG,
+        ]);
+    }
+
+    /**
+     * Halaman Khusus: Frequently Asked Questions (FAQ)
+     */
+    public function faq()
+    {
+        return view('guest.faq');
+    }
+
+    /**
      * Proses penukaran poin tamu
      */
     public function redeem(Request $request)

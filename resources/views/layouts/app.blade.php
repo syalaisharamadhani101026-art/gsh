@@ -95,6 +95,14 @@
                     <i data-lucide="mail" class="w-3 h-3 text-[#D4AF37]"></i>
                     <span>grandsenyum@gmail.com</span>
                 </a>
+                <span class="hidden sm:inline text-stone-600">|</span>
+                <!-- Language Switcher Top Utility -->
+                <div class="inline-flex items-center space-x-1.5 text-[11px] font-bold bg-black/40 px-2.5 py-0.5 rounded-full border border-amber-500/30">
+                    <span class="text-stone-400 text-[10px] uppercase tracking-wider mr-1">Language:</span>
+                    <a href="{{ route('lang.switch', 'en') }}" class="{{ app()->getLocale() === 'en' ? 'text-[#D4AF37] font-black underline' : 'text-stone-400 hover:text-white' }}" title="English">EN</a>
+                    <span class="text-stone-600">/</span>
+                    <a href="{{ route('lang.switch', 'id') }}" class="{{ app()->getLocale() === 'id' ? 'text-[#D4AF37] font-black underline' : 'text-stone-400 hover:text-white' }}" title="Bahasa Indonesia">ID</a>
+                </div>
             </div>
         </div>
     </div>
@@ -119,19 +127,36 @@
                     </div>
                 </a>
 
-                <!-- Navigation Menu Links (Mulia Privilege Structure) -->
+                <!-- Navigation Menu Links (Multi-Page Navigation) -->
                 <nav class="hidden lg:flex items-center space-x-1 text-xs font-bold uppercase tracking-wider text-stone-700">
-                    <a href="{{ route('guest.points') }}#tentang" class="px-3 py-2 rounded-xl hover:text-stone-950 hover:bg-[#F2ECE1] transition">About</a>
-                    <a href="{{ route('guest.points') }}#tier" class="px-3 py-2 rounded-xl hover:text-stone-950 hover:bg-[#F2ECE1] transition">Membership Tiers</a>
-                    <a href="{{ route('guest.points') }}#perolehan" class="px-3 py-2 rounded-xl hover:text-stone-950 hover:bg-[#F2ECE1] transition">Earn Points</a>
-                    <a href="{{ route('guest.points') }}#katalog" class="px-3 py-2 rounded-xl hover:text-stone-950 hover:bg-[#F2ECE1] transition">Rewards Catalog</a>
-                    <a href="{{ route('guest.points') }}#faq" class="px-3 py-2 rounded-xl hover:text-stone-950 hover:bg-[#F2ECE1] transition">
-                        FAQ
-                    </a>
+                    <a href="{{ route('guest.about', ['lang' => app()->getLocale()]) }}" class="px-3.5 py-2 rounded-xl transition {{ request()->routeIs('guest.about') ? 'text-[#8A6319] bg-[#F2ECE1] font-black shadow-sm' : 'hover:text-stone-950 hover:bg-[#F2ECE1]' }}">{{ __('About') }}</a>
+                    <a href="{{ route('guest.tiers', ['lang' => app()->getLocale()]) }}" class="px-3.5 py-2 rounded-xl transition {{ request()->routeIs('guest.tiers') ? 'text-[#8A6319] bg-[#F2ECE1] font-black shadow-sm' : 'hover:text-stone-950 hover:bg-[#F2ECE1]' }}">{{ __('Membership Tiers') }}</a>
+                    <a href="{{ route('guest.earn', ['lang' => app()->getLocale()]) }}" class="px-3.5 py-2 rounded-xl transition {{ request()->routeIs('guest.earn') ? 'text-[#8A6319] bg-[#F2ECE1] font-black shadow-sm' : 'hover:text-stone-950 hover:bg-[#F2ECE1]' }}">{{ __('Earn Points') }}</a>
+                    <a href="{{ route('guest.catalog', ['lang' => app()->getLocale()]) }}" class="px-3.5 py-2 rounded-xl transition {{ request()->routeIs('guest.catalog') ? 'text-[#8A6319] bg-[#F2ECE1] font-black shadow-sm' : 'hover:text-stone-950 hover:bg-[#F2ECE1]' }}">{{ __('Rewards Catalog') }}</a>
+                    <a href="{{ route('guest.faq', ['lang' => app()->getLocale()]) }}" class="px-3.5 py-2 rounded-xl transition {{ request()->routeIs('guest.faq') ? 'text-[#8A6319] bg-[#F2ECE1] font-black shadow-sm' : 'hover:text-stone-950 hover:bg-[#F2ECE1]' }}">{{ __('FAQ') }}</a>
                 </nav>
 
                 <!-- Navigation Tabs / Action CTAs -->
-                <div class="flex items-center space-x-2">
+                <div class="flex items-center space-x-2.5">
+                    <!-- Language Switcher Pill -->
+                    <div class="inline-flex items-center rounded-xl p-1 bg-[#FAF6EE] border-2 border-[#DEC8A4] text-xs font-bold shadow-xs">
+                        <a href="{{ route('lang.switch', 'en') }}" 
+                           class="px-3 py-1 rounded-lg transition-all flex items-center space-x-1 {{ app()->getLocale() === 'en' ? 'bg-[#1C1408] text-[#EBD195] font-black shadow-sm ring-1 ring-[#D4AF37]' : 'text-stone-600 hover:text-stone-900' }}"
+                           title="Switch to English">
+                            <span>EN</span>
+                        </a>
+                        <a href="{{ route('lang.switch', 'id') }}" 
+                           class="px-3 py-1 rounded-lg transition-all flex items-center space-x-1 {{ app()->getLocale() === 'id' ? 'bg-[#1C1408] text-[#EBD195] font-black shadow-sm ring-1 ring-[#D4AF37]' : 'text-stone-600 hover:text-stone-900' }}"
+                           title="Ganti ke Bahasa Indonesia">
+                            <span>ID</span>
+                        </a>
+                    </div>
+
+                    <a href="{{ route('guest.points', ['lang' => app()->getLocale()]) }}" class="hidden sm:inline-flex items-center space-x-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-[#D4AF37] via-[#DFB85B] to-[#B8860B] hover:brightness-105 text-slate-950 text-xs font-bold uppercase tracking-wider shadow-sm transition {{ request()->routeIs('guest.points') ? 'ring-2 ring-amber-600/50' : '' }}">
+                        <i data-lucide="search" class="w-3.5 h-3.5"></i>
+                        <span>{{ __('Check Points') }}</span>
+                    </a>
+
                     <!-- Mobile Menu Trigger -->
                     <button type="button" 
                             onclick="toggleMobileMenu()" 
@@ -143,12 +168,21 @@
 
             <!-- Mobile Navigation Accordion -->
             <div id="mobile-nav-menu" class="hidden lg:hidden py-4 border-t border-[#E8DFC8] space-y-2 text-xs font-bold uppercase tracking-wider">
-                <a href="{{ route('guest.points') }}#tentang" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-stone-800 hover:bg-[#F2ECE1]">About Priority</a>
-                <a href="{{ route('guest.points') }}#tier" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-stone-800 hover:bg-[#F2ECE1]">Membership Tiers</a>
-                <a href="{{ route('guest.points') }}#perolehan" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-stone-800 hover:bg-[#F2ECE1]">How to Earn Points</a>
-                <a href="{{ route('guest.points') }}#katalog" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-stone-800 hover:bg-[#F2ECE1]">Rewards Catalog</a>
-                <a href="{{ route('guest.points') }}#faq" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl text-stone-800 hover:bg-[#F2ECE1]">FAQ</a>
-                <a href="{{ route('guest.points') }}#cek-poin" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 text-center font-bold">Check Points Now</a>
+                <a href="{{ route('guest.points', ['lang' => app()->getLocale()]) }}" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-xl bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-slate-950 text-center font-bold mb-2">{{ __('Check Points Now') }}</a>
+                <a href="{{ route('guest.about', ['lang' => app()->getLocale()]) }}" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl {{ request()->routeIs('guest.about') ? 'text-[#8A6319] bg-[#F2ECE1] font-black' : 'text-stone-800 hover:bg-[#F2ECE1]' }}">{{ __('About') }} Senyum Stay</a>
+                <a href="{{ route('guest.tiers', ['lang' => app()->getLocale()]) }}" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl {{ request()->routeIs('guest.tiers') ? 'text-[#8A6319] bg-[#F2ECE1] font-black' : 'text-stone-800 hover:bg-[#F2ECE1]' }}">{{ __('Membership Tiers') }}</a>
+                <a href="{{ route('guest.earn', ['lang' => app()->getLocale()]) }}" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl {{ request()->routeIs('guest.earn') ? 'text-[#8A6319] bg-[#F2ECE1] font-black' : 'text-stone-800 hover:bg-[#F2ECE1]' }}">{{ __('How to Earn Points') }}</a>
+                <a href="{{ route('guest.catalog', ['lang' => app()->getLocale()]) }}" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl {{ request()->routeIs('guest.catalog') ? 'text-[#8A6319] bg-[#F2ECE1] font-black' : 'text-stone-800 hover:bg-[#F2ECE1]' }}">{{ __('Rewards Catalog') }}</a>
+                <a href="{{ route('guest.faq', ['lang' => app()->getLocale()]) }}" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl {{ request()->routeIs('guest.faq') ? 'text-[#8A6319] bg-[#F2ECE1] font-black' : 'text-stone-800 hover:bg-[#F2ECE1]' }}">{{ __('FAQ') }}</a>
+                
+                <!-- Mobile Language Selector Row -->
+                <div class="pt-3 mt-2 border-t border-[#DEC8A4] flex items-center justify-between px-3">
+                    <span class="text-stone-600 text-[11px]">Language / Bahasa:</span>
+                    <div class="inline-flex items-center rounded-xl p-0.5 bg-[#FAF6EE] border border-[#DEC8A4] text-xs">
+                        <a href="{{ route('lang.switch', 'en') }}" class="px-3 py-1 rounded-lg {{ app()->getLocale() === 'en' ? 'bg-[#1C1408] text-[#EBD195] font-bold' : 'text-stone-600' }}">English</a>
+                        <a href="{{ route('lang.switch', 'id') }}" class="px-3 py-1 rounded-lg {{ app()->getLocale() === 'id' ? 'bg-[#1C1408] text-[#EBD195] font-bold' : 'text-stone-600' }}">Indonesia</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -200,31 +234,32 @@
                         </div>
                     </div>
                     <p class="text-xs text-stone-300 max-w-md leading-relaxed">
-                        The prestigious loyalty program of Grand Senyum Hotel Yogyakarta. Specially designed to express our highest appreciation to distinguished guests through stay points, banquet revenue rewards, and unmatched VIP privileges.
+                        {{ __('The prestigious loyalty program of Grand Senyum Hotel Yogyakarta. Specially designed to express our highest appreciation to distinguished guests through stay points, banquet revenue rewards, and unmatched VIP privileges.') }}
                     </p>
                     <div class="flex items-center space-x-3 pt-2">
                         <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] text-[#EBD195]">
                             <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#D4AF37]"></i>
-                            <span>Bespoke Hospitality Yogyakarta</span>
+                            <span>{{ __('Bespoke Hospitality Yogyakarta') }}</span>
                         </span>
                     </div>
                 </div>
 
                 <!-- Col 2: Navigasi Cepat -->
                 <div class="space-y-3">
-                    <h4 class="font-serif font-bold text-white text-sm uppercase tracking-wider text-[#D4AF37]">Program Navigation</h4>
+                    <h4 class="font-serif font-bold text-white text-sm uppercase tracking-wider text-[#D4AF37]">{{ __('Program Navigation') }}</h4>
                     <ul class="space-y-2 text-xs text-stone-300">
-                        <li><a href="{{ route('guest.points') }}#tentang" class="hover:text-[#D4AF37] transition">About Senyum Stay Priority</a></li>
-                        <li><a href="{{ route('guest.points') }}#tier" class="hover:text-[#D4AF37] transition">Membership Tiers</a></li>
-                        <li><a href="{{ route('guest.points') }}#perolehan" class="hover:text-[#D4AF37] transition">Room & Banquet Earning</a></li>
-                        <li><a href="{{ route('guest.points') }}#katalog" class="hover:text-[#D4AF37] transition">Rewards & Voucher Catalog</a></li>
-                        <li><a href="{{ route('guest.points') }}#faq" class="hover:text-[#D4AF37] transition">Frequently Asked Questions (FAQ)</a></li>
+                        <li><a href="{{ route('guest.points') }}" class="hover:text-[#D4AF37] transition">{{ __('Check Member Points') }}</a></li>
+                        <li><a href="{{ route('guest.about') }}" class="hover:text-[#D4AF37] transition">{{ __('About Senyum Stay Priority') }}</a></li>
+                        <li><a href="{{ route('guest.tiers') }}" class="hover:text-[#D4AF37] transition">{{ __('Membership Tiers & Privileges') }}</a></li>
+                        <li><a href="{{ route('guest.earn') }}" class="hover:text-[#D4AF37] transition">{{ __('Room & Banquet Earning') }}</a></li>
+                        <li><a href="{{ route('guest.catalog') }}" class="hover:text-[#D4AF37] transition">{{ __('Rewards & Voucher Catalog') }}</a></li>
+                        <li><a href="{{ route('guest.faq') }}" class="hover:text-[#D4AF37] transition">{{ __('Frequently Asked Questions (FAQ)') }}</a></li>
                     </ul>
                 </div>
 
                 <!-- Col 3: Concierge & Kontak -->
                 <div class="space-y-3">
-                    <h4 class="font-serif font-bold text-white text-sm uppercase tracking-wider text-[#D4AF37]">Official Contact & Address</h4>
+                    <h4 class="font-serif font-bold text-white text-sm uppercase tracking-wider text-[#D4AF37]">{{ __('Official Contact & Address') }}</h4>
                     <div class="space-y-2.5 text-xs text-stone-300">
                         <p class="flex items-start space-x-2">
                             <i data-lucide="map-pin" class="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5"></i>
@@ -253,17 +288,17 @@
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400">
                 <p>
                     &copy; {{ date('Y') }} GRAND SENYUM HOTEL YOGYAKARTA. ALL RIGHTS RESERVED. &bull; 
-                    <a href="{{ route('admin.dashboard') }}" class="hover:text-[#D4AF37] transition font-semibold">Admin Staff Portal</a>
+                    <a href="{{ route('admin.dashboard') }}" class="hover:text-[#D4AF37] transition font-semibold">{{ __('Admin Staff Portal') }}</a>
                 </p>
                 <div class="flex flex-wrap items-center justify-center gap-3 text-xs font-semibold">
                     <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 text-stone-300">
-                        <span class="w-2 h-2 rounded-full bg-slate-400 mr-2"></span> Silver (Max 1,000 pts)
+                        <span class="w-2 h-2 rounded-full bg-slate-400 mr-2"></span> Silver ({{ app()->getLocale() === 'id' ? 'Maks 1.000 Poin' : 'Max 1,000 pts' }})
                     </span>
                     <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-amber-500/30 text-amber-300">
-                        <span class="w-2 h-2 rounded-full bg-[#D4AF37] mr-2"></span> Gold (Max 5,000 pts)
+                        <span class="w-2 h-2 rounded-full bg-[#D4AF37] mr-2"></span> Gold ({{ app()->getLocale() === 'id' ? 'Maks 5.000 Poin' : 'Max 5,000 pts' }})
                     </span>
                     <span class="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-indigo-500/30 text-indigo-300">
-                        <span class="w-2 h-2 rounded-full bg-indigo-400 mr-2"></span> Platinum (Max 10,000 pts)
+                        <span class="w-2 h-2 rounded-full bg-indigo-400 mr-2"></span> Platinum ({{ app()->getLocale() === 'id' ? 'Maks 10.000 Poin' : 'Max 10,000 pts' }})
                     </span>
                 </div>
             </div>
